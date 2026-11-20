@@ -6,7 +6,7 @@ Installs the [Claude Code](https://code.claude.com/docs) CLI from Anthropic's of
 
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
-| `version` | string | `latest` | `latest`, `stable`, or an exact version such as `2.1.329`. |
+| `version` | string | `2.1.329` | Exact version (default), `latest`, or `stable`. |
 | `hash` | string | `auto` | SHA-256/SHA-512 checksum, `auto` to use the built-in checksum map, or `disabled` to skip verification. |
 
 ## Usage
@@ -15,7 +15,7 @@ Installs the [Claude Code](https://code.claude.com/docs) CLI from Anthropic's of
 {
     "features": {
         "ghcr.io/overlordtm/devcontainer-features/claude-code:0": {
-            "version": "latest"
+            "version": "2.1.329"
         }
     }
 }
@@ -47,6 +47,7 @@ Set `"hash": "disabled"` to skip verification. Only do this if you have another 
 - Supports Linux `x64` and `arm64`, including musl-based distributions such as Alpine.
 - Adds the `anthropic.claude-code` VS Code extension customization.
 - Background auto-updates are disabled with `DISABLE_AUTOUPDATER=1` so the version installed during the image build stays reproducible.
+- `version` defaults to the pinned release `2.1.329` so builds are reproducible. Set `"version": "latest"` (or `"stable"`) to resolve the newest release at build time; that requires network access and a known checksum.
 - To persist login, settings, and session history across rebuilds, pair this Feature with [`claude-code-persistence`](../claude-code-persistence).
 
 ## Testing

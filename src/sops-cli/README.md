@@ -6,7 +6,7 @@ Installs the [SOPS](https://github.com/getsops/sops) secrets management CLI from
 
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
-| `version` | string | `latest` | sops version to install, for example `3.13.3`. |
+| `version` | string | `3.13.3` | sops version to install, for example `3.13.3`. |
 | `hash` | string | `auto` | SHA-256/SHA-512 checksum, `auto` to use the built-in checksum map, or `disabled` to skip verification. |
 
 ## Usage
@@ -15,7 +15,7 @@ Installs the [SOPS](https://github.com/getsops/sops) secrets management CLI from
 {
     "features": {
         "ghcr.io/overlordtm/devcontainer-features/sops-cli:0": {
-            "version": "latest"
+            "version": "3.13.3"
         }
     }
 }
@@ -26,6 +26,7 @@ Installs the [SOPS](https://github.com/getsops/sops) secrets management CLI from
 - Supports `linux/amd64` and `linux/arm64`.
 - `sops` is installed as `/usr/local/bin/sops`.
 - sops stores its configuration in `~/.config/sops`; this Feature does not persist that directory.
+- `version` defaults to the pinned release `3.13.3` so builds are reproducible. Set `"version": "latest"` to resolve the newest release at build time; that requires network access and a known checksum.
 
 ## Checksum verification
 

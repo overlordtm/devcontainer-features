@@ -1,6 +1,6 @@
 {
     "id": "gitleaks-cli",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "Gitleaks CLI (gitleaks)",
     "description": "Installs the Gitleaks secret scanning CLI (gitleaks) from official GitHub releases.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/gitleaks-cli",
@@ -15,10 +15,10 @@
         "version": {
             "type": "string",
             "proposals": [
-                "latest",
-                "8.30.1"
+                "8.30.1",
+                "latest"
             ],
-            "default": "latest",
+            "default": "8.30.1",
             "description": "Version of gitleaks to install."
         },
         "hash": {

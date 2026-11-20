@@ -1,6 +1,6 @@
 {
     "id": "tflint-cli",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "TFLint CLI (tflint)",
     "description": "Installs the TFLint Terraform linter CLI (tflint) from official GitHub releases.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/tflint-cli",
@@ -15,10 +15,10 @@
         "version": {
             "type": "string",
             "proposals": [
-                "latest",
-                "0.66.0"
+                "0.66.0",
+                "latest"
             ],
-            "default": "latest",
+            "default": "0.66.0",
             "description": "Version of TFLint to install."
         },
         "hash": {

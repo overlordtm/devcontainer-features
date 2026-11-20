@@ -27,6 +27,10 @@ The `*-persistence` Features are companion Features: they do not install the too
 
 Every CLI-installing Feature verifies downloaded artifacts against a built-in SHA-256 map of vetted versions. If you install a version that is not in the map, pass your own digest through the `hash` option, or set `"hash": "disabled"` to skip verification. A newly published upstream `latest` release is therefore rejected until the Feature's checksum map is updated (or you provide a digest). See the README of each Feature for details.
 
+## Version defaults
+
+Each CLI-installing Feature pins its `version` option to a specific, checksum-verified release, so builds are reproducible and do not depend on a release lookup at build time. Set `"version": "latest"` (or another version) explicitly if you want to resolve or install something else.
+
 ## Usage
 
 Features are published under the `overlordtm/devcontainer-features` namespace.

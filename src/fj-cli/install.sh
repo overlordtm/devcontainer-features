@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-VERSION="${VERSION:-latest}"
+VERSION="${VERSION:-0.7.0}"
 HASH_INPUT="${HASH:-auto}"
 CLIENT_ID="${CLIENT_ID:-}"
 CLIENT_ID_STATE_DIR="/usr/local/share/fj-cli"
@@ -275,17 +275,41 @@ if is_musl; then
     exit 0
 fi
 
-if [ "${VERSION}" = "latest" ]; then
-    echo "Looking up the latest fj release..."
-    VERSION="$(curl -fsSL --retry 3 --retry-delay 2 \
-        "https://codeberg.org/api/v1/repos/forgejo-contrib/forgejo-cli/releases/latest" \
+resolve_latest_version() {
+    repo="$1"
+
+    # Prefer the release page redirect; it is cheaper and not rate limited.
+    if effective_url="$(curl -fsSLI -o /dev/null -w '%{url_effective}' \
+        --retry 3 --retry-delay 2 \
+        "https://codeberg.org/${repo}/releases/latest" 2>/dev/null)"; then
+        tag="${effective_url##*/}"
+        case "${tag}" in
+            '' | latest | */* | *[!A-Za-z0-9._-]*) ;;
+            *) printf '%s\n' "${tag#v}"; return 0 ;;
+        esac
+    fi
+
+    # Fall back to the REST API in case the redirect could not be resolved.
+    if tag="$(curl -fsSL --retry 3 --retry-delay 2 \
+        "https://codeberg.org/api/v1/repos/${repo}/releases/latest" 2>/dev/null \
         | grep -o '"tag_name":"[^"]*"' \
         | head -n 1 \
-        | cut -d'"' -f4 \
-        | sed 's/^v//')"
+        | cut -d'"' -f4)"; then
+        tag="${tag#v}"
+        case "${tag}" in
+            '' | *[!A-Za-z0-9._-]*) ;;
+            *) printf '%s\n' "${tag}"; return 0 ;;
+        esac
+    fi
 
-    if [ -z "${VERSION}" ]; then
+    return 1
+}
+
+if [ "${VERSION}" = "latest" ]; then
+    echo "Looking up the latest fj release..."
+    if ! VERSION="$(resolve_latest_version "forgejo-contrib/forgejo-cli")"; then
         echo "Could not determine the latest fj version." >&2
+        echo "Set the 'version' option to a specific release (for example \"0.7.0\") to skip the lookup." >&2
         exit 1
     fi
 fi

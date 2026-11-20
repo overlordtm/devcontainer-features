@@ -6,7 +6,7 @@ Installs the [Grafana CLI](https://github.com/grafana/gcx) (`gcx`) from official
 
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
-| `version` | string | `latest` | gcx version to install, for example `1.8.0`. |
+| `version` | string | `1.8.0` | gcx version to install, for example `1.8.0`. |
 | `hash` | string | `auto` | SHA-256/SHA-512 checksum, `auto` to use the built-in checksum map, or `disabled` to skip verification. |
 
 ## Usage
@@ -15,7 +15,7 @@ Installs the [Grafana CLI](https://github.com/grafana/gcx) (`gcx`) from official
 {
     "features": {
         "ghcr.io/overlordtm/devcontainer-features/gcx-cli:0": {
-            "version": "latest"
+            "version": "1.8.0"
         }
     }
 }
@@ -25,6 +25,7 @@ Installs the [Grafana CLI](https://github.com/grafana/gcx) (`gcx`) from official
 
 - Supports `linux/amd64` and `linux/arm64`.
 - `gcx` is installed as `/usr/local/bin/gcx`.
+- `version` defaults to the pinned release `1.8.0` so builds are reproducible. With `version: "latest"`, the release tag is resolved from the GitHub release page redirect rather than the REST API, which is rate limited for anonymous clients on shared CI runners. If the lookup still fails, pin `version` to a specific release.
 - gcx stores its configuration in `~/.config/gcx`; this Feature does not persist that directory.
 
 ## Checksum verification

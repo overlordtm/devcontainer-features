@@ -6,7 +6,7 @@ Installs the [age](https://age-encryption.org/) file encryption CLI from officia
 
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
-| `version` | string | `latest` | age version to install, for example `1.3.2`. |
+| `version` | string | `1.3.2` | age version to install, for example `1.3.2`. |
 | `hash` | string | `auto` | SHA-256/SHA-512 checksum, `auto` to use the built-in checksum map, or `disabled` to skip verification. |
 
 ## Usage
@@ -15,7 +15,7 @@ Installs the [age](https://age-encryption.org/) file encryption CLI from officia
 {
     "features": {
         "ghcr.io/overlordtm/devcontainer-features/age-cli:0": {
-            "version": "latest"
+            "version": "1.3.2"
         }
     }
 }
@@ -26,6 +26,7 @@ Both `age` and `age-keygen` are installed into `/usr/local/bin`.
 ## Notes
 
 - Supports `linux/amd64`, `linux/arm64`, and `linux/arm`.
+- `version` defaults to the pinned release `1.3.2` so builds are reproducible. Set `"version": "latest"` to resolve the newest release at build time; that requires network access and a known checksum.
 - age stores keys wherever you place them; this Feature only installs the binaries. It does not mount, copy, or persist keys.
 
 ## Mounting age keys from the host

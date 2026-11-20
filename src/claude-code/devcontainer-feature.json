@@ -1,6 +1,6 @@
 {
     "id": "claude-code",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "name": "Claude Code CLI",
     "description": "Installs the Claude Code CLI from Anthropic's official native releases.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/claude-code",
@@ -14,11 +14,11 @@
         "version": {
             "type": "string",
             "proposals": [
+                "2.1.329",
                 "latest",
-                "stable",
-                "2.1.329"
+                "stable"
             ],
-            "default": "latest",
+            "default": "2.1.329",
             "description": "Claude Code version to install: latest, stable, or an exact version such as 2.1.329."
         },
         "hash": {

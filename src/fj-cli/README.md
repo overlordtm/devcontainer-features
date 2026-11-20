@@ -6,7 +6,7 @@ Installs [`fj`](https://codeberg.org/forgejo-contrib/forgejo-cli), a command-lin
 
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
-| `version` | string | `latest` | `fj` version to install, for example `0.7.0`. |
+| `version` | string | `0.7.0` | `fj` version to install, for example `0.7.0`. |
 | `hash` | string | `auto` | SHA-256/SHA-512 checksum, `auto` to use the built-in checksum map, or `disabled` to skip verification. |
 | `client_id` | string | `""` | OAuth client ID mapping for `fj`: either `<host> <uuid>` or the name of a file in the workspace `.devcontainer` directory. |
 
@@ -16,7 +16,7 @@ Installs [`fj`](https://codeberg.org/forgejo-contrib/forgejo-cli), a command-lin
 {
     "features": {
         "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {
-            "version": "latest"
+            "version": "0.7.0"
         }
     }
 }
@@ -58,6 +58,7 @@ The file uses the same format as `/etc/fj/client_ids`: one `<host> <uuid>` mappi
 - Official `fj` binaries are published for Linux `x86_64` and `aarch64` and require a glibc-based distribution with OpenSSL 3 (for example Debian 12+ or Ubuntu 22.04+).
 - On musl distributions such as Alpine, or when the prebuilt binary cannot run, the Feature falls back to `cargo install forgejo-cli --locked` if Cargo is available. Otherwise it fails with an explanation.
 - `fj` stores its configuration under the user's XDG directories, including `~/.local/share/forgejo-cli/keys.json` with your logins. This Feature does not persist it; pair it with [`fj-cli-persistence`](../fj-cli-persistence) to keep logins across rebuilds.
+- `version` defaults to the pinned release `0.7.0` so builds are reproducible. Set `"version": "latest"` to resolve the newest release at build time; that requires network access and a known checksum.
 
 ## Opening URLs
 

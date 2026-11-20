@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-VERSION="${VERSION:-latest}"
+VERSION="${VERSION:-0.66.0}"
 HASH_INPUT="${HASH:-auto}"
 
 if [ "$(id -u)" -ne 0 ]; then
@@ -147,17 +147,44 @@ if [ -n "${MISSING_PACKAGES}" ]; then
     install_packages ${MISSING_PACKAGES}
 fi
 
-if [ "${VERSION}" = "latest" ]; then
-    echo "Looking up the latest TFLint release..."
-    VERSION="$(curl -fsSL --retry 3 --retry-delay 2 \
-        "https://api.github.com/repos/terraform-linters/tflint/releases/latest" \
+resolve_latest_version() {
+    repo="$1"
+
+    # Prefer the release page redirect. Unlike the REST API it is not subject
+    # to the anonymous rate limit (60 requests/hour per IP), which shared CI
+    # runners can easily exhaust and then receive HTTP 403 from.
+    if effective_url="$(curl -fsSLI -o /dev/null -w '%{url_effective}' \
+        --retry 3 --retry-delay 2 \
+        "https://github.com/${repo}/releases/latest" 2>/dev/null)"; then
+        tag="${effective_url##*/}"
+        case "${tag}" in
+            '' | latest | */* | *[!A-Za-z0-9._-]*) ;;
+            *) printf '%s\n' "${tag#v}"; return 0 ;;
+        esac
+    fi
+
+    # Fall back to the REST API in case the redirect could not be resolved.
+    if tag="$(curl -fsSL --retry 3 --retry-delay 2 \
+        -H 'Accept: application/vnd.github+json' \
+        "https://api.github.com/repos/${repo}/releases/latest" 2>/dev/null \
         | grep -o '"tag_name": *"[^"]*"' \
         | head -n 1 \
-        | cut -d'"' -f4 \
-        | sed 's/^v//')"
+        | cut -d'"' -f4)"; then
+        tag="${tag#v}"
+        case "${tag}" in
+            '' | *[!A-Za-z0-9._-]*) ;;
+            *) printf '%s\n' "${tag}"; return 0 ;;
+        esac
+    fi
 
-    if [ -z "${VERSION}" ]; then
+    return 1
+}
+
+if [ "${VERSION}" = "latest" ]; then
+    echo "Looking up the latest TFLint release..."
+    if ! VERSION="$(resolve_latest_version "terraform-linters/tflint")"; then
         echo "Could not determine the latest TFLint version." >&2
+        echo "Set the 'version' option to a specific release (for example \"0.66.0\") to skip the lookup." >&2
         exit 1
     fi
 fi

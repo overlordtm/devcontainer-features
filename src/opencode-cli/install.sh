@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-VERSION="${VERSION:-latest}"
+VERSION="${VERSION:-2.3.2}"
 HASH_INPUT="${HASH:-auto}"
 
 if [ "$(id -u)" -ne 0 ]; then
@@ -203,6 +203,7 @@ if [ "${VERSION}" = "latest" ]; then
 
     if [ -z "${VERSION}" ]; then
         echo "Could not determine the latest OpenCode version." >&2
+        echo "Set the 'version' option to a specific release (for example \"2.3.2\") to skip the lookup." >&2
         exit 1
     fi
 fi

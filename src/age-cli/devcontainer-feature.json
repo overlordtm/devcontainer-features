@@ -1,6 +1,6 @@
 {
     "id": "age-cli",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "age CLI",
     "description": "Installs the age file encryption CLI (age and age-keygen) from official GitHub releases.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/age-cli",
@@ -14,10 +14,10 @@
         "version": {
             "type": "string",
             "proposals": [
-                "latest",
-                "1.3.2"
+                "1.3.2",
+                "latest"
             ],
-            "default": "latest",
+            "default": "1.3.2",
             "description": "Version of age to install."
         },
         "hash": {

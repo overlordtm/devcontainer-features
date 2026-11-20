@@ -1,6 +1,6 @@
 {
     "id": "fj-cli",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "name": "Forgejo CLI (fj)",
     "description": "Installs fj, the Forgejo and Gitea command-line client, from official releases.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/fj-cli",
@@ -14,10 +14,10 @@
         "version": {
             "type": "string",
             "proposals": [
-                "latest",
-                "0.7.0"
+                "0.7.0",
+                "latest"
             ],
-            "default": "latest",
+            "default": "0.7.0",
             "description": "Version of fj to install."
         },
         "hash": {

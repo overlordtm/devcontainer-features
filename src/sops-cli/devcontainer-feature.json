@@ -1,6 +1,6 @@
 {
     "id": "sops-cli",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "SOPS CLI (sops)",
     "description": "Installs the SOPS secrets management CLI (sops) from official GitHub releases.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/sops-cli",
@@ -14,10 +14,10 @@
         "version": {
             "type": "string",
             "proposals": [
-                "latest",
-                "3.13.3"
+                "3.13.3",
+                "latest"
             ],
-            "default": "latest",
+            "default": "3.13.3",
             "description": "Version of sops to install."
         },
         "hash": {

@@ -1,6 +1,6 @@
 {
     "id": "gcx-cli",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "Grafana CLI (gcx)",
     "description": "Installs the Grafana CLI (gcx) from official GitHub releases.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/gcx-cli",
@@ -14,10 +14,10 @@
         "version": {
             "type": "string",
             "proposals": [
-                "latest",
-                "1.8.0"
+                "1.8.0",
+                "latest"
             ],
-            "default": "latest",
+            "default": "1.8.0",
             "description": "Version of gcx to install."
         },
         "hash": {

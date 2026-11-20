@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-VERSION_INPUT="${VERSION:-latest}"
+VERSION_INPUT="${VERSION:-2.1.329}"
 HASH_INPUT="${HASH:-auto}"
 
 if [ "$(id -u)" -ne 0 ]; then
@@ -183,8 +183,12 @@ fi
 case "${VERSION_INPUT}" in
     latest | stable)
         echo "Looking up the ${VERSION_INPUT} Claude Code release..."
-        VERSION="$(curl -fsSL --retry 3 --retry-delay 2 \
-            "https://downloads.claude.ai/claude-code-releases/${VERSION_INPUT}")"
+        if ! VERSION="$(curl -fsSL --retry 3 --retry-delay 2 \
+            "https://downloads.claude.ai/claude-code-releases/${VERSION_INPUT}")"; then
+            echo "Could not determine the ${VERSION_INPUT} Claude Code release." >&2
+            echo "Set the 'version' option to a specific release (for example \"2.1.329\") to skip the lookup." >&2
+            exit 1
+        fi
         ;;
     *)
         VERSION="${VERSION_INPUT#v}"

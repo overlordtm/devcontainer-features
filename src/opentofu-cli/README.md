@@ -6,7 +6,7 @@ Installs the [OpenTofu](https://opentofu.org/) CLI (`tofu`) from official GitHub
 
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
-| `version` | string | `latest` | OpenTofu version to install, for example `1.13.9`. |
+| `version` | string | `1.13.9` | OpenTofu version to install, for example `1.13.9`. |
 | `hash` | string | `auto` | SHA-256/SHA-512 checksum, `auto` to use the built-in checksum map, or `disabled` to skip verification. |
 
 ## Usage
@@ -15,7 +15,7 @@ Installs the [OpenTofu](https://opentofu.org/) CLI (`tofu`) from official GitHub
 {
     "features": {
         "ghcr.io/overlordtm/devcontainer-features/opentofu-cli:0": {
-            "version": "latest"
+            "version": "1.13.9"
         }
     }
 }
@@ -26,6 +26,7 @@ Installs the [OpenTofu](https://opentofu.org/) CLI (`tofu`) from official GitHub
 - Supports `linux/amd64`, `linux/arm64`, `linux/arm`, and `linux/386`.
 - `tofu` is installed as `/usr/local/bin/tofu`.
 - OpenTofu stores CLI configuration and plugin caches in `~/.tofu.d` and `~/.terraform.d`; this Feature does not persist those directories.
+- `version` defaults to the pinned release `1.13.9` so builds are reproducible. Set `"version": "latest"` to resolve the newest release at build time; that requires network access and a known checksum.
 
 ## Checksum verification
 

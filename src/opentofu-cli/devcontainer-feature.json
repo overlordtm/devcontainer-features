@@ -1,6 +1,6 @@
 {
     "id": "opentofu-cli",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "OpenTofu CLI (tofu)",
     "description": "Installs the OpenTofu CLI (tofu) from official GitHub releases.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/opentofu-cli",
@@ -15,10 +15,10 @@
         "version": {
             "type": "string",
             "proposals": [
-                "latest",
-                "1.13.9"
+                "1.13.9",
+                "latest"
             ],
-            "default": "latest",
+            "default": "1.13.9",
             "description": "Version of OpenTofu to install."
         },
         "hash": {

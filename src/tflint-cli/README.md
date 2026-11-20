@@ -6,7 +6,7 @@ Installs the [TFLint](https://github.com/terraform-linters/tflint) Terraform lin
 
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
-| `version` | string | `latest` | TFLint version to install, for example `0.66.0`. |
+| `version` | string | `0.66.0` | TFLint version to install, for example `0.66.0`. |
 | `hash` | string | `auto` | SHA-256/SHA-512 checksum, `auto` to use the built-in checksum map, or `disabled` to skip verification. |
 
 ## Usage
@@ -15,7 +15,7 @@ Installs the [TFLint](https://github.com/terraform-linters/tflint) Terraform lin
 {
     "features": {
         "ghcr.io/overlordtm/devcontainer-features/tflint-cli:0": {
-            "version": "latest"
+            "version": "0.66.0"
         }
     }
 }
@@ -27,6 +27,7 @@ Installs the [TFLint](https://github.com/terraform-linters/tflint) Terraform lin
 - `tflint` is installed as `/usr/local/bin/tflint`.
 - `unzip` is installed if it is not already present.
 - TFLint downloads rule sets (for example `tflint-ruleset-aws`) at runtime and caches them in `~/.tflint.d`; this Feature only installs the binary.
+- `version` defaults to the pinned release `0.66.0` so builds are reproducible. Set `"version": "latest"` to resolve the newest release at build time; that requires network access and a known checksum.
 
 ## Checksum verification
 
