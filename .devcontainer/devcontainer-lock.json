@@ -1,0 +1,34 @@
+{
+  "features": {
+    "ghcr.io/overlordtm/devcontainer-features/claude-code-persistence:0": {
+      "version": "0.0.1",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/claude-code-persistence@sha256:081a1f21a45ca9d37483136bc9c4c9e46653f842e1f78f6295b6493019a581dc",
+      "integrity": "sha256:081a1f21a45ca9d37483136bc9c4c9e46653f842e1f78f6295b6493019a581dc"
+    },
+    "ghcr.io/overlordtm/devcontainer-features/direnv:0": {
+      "version": "0.0.1",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/direnv@sha256:cb814ede457fc3b20a907087b9f9e69ad00e7792a712a14481bd0b49770fcc86",
+      "integrity": "sha256:cb814ede457fc3b20a907087b9f9e69ad00e7792a712a14481bd0b49770fcc86"
+    },
+    "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {
+      "version": "0.0.1",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/fj-cli@sha256:c13d8e71dd2c56b2426d0a57f4ad31537cf4df202c4f07806c059833dbb818ec",
+      "integrity": "sha256:c13d8e71dd2c56b2426d0a57f4ad31537cf4df202c4f07806c059833dbb818ec"
+    },
+    "ghcr.io/overlordtm/devcontainer-features/glab-cli:0": {
+      "version": "0.0.1",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/glab-cli@sha256:c685cda0f0fd5497dba66ddf5c4dd1aa9e62306b376c9ac7127da06aaf2e8ecb",
+      "integrity": "sha256:c685cda0f0fd5497dba66ddf5c4dd1aa9e62306b376c9ac7127da06aaf2e8ecb"
+    },
+    "ghcr.io/overlordtm/devcontainer-features/opencode-cli:0": {
+      "version": "0.0.1",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/opencode-cli@sha256:ea3010b933bde8f193f00d275db92cb4c26186c2b966892efcc1cf03f06ac58b",
+      "integrity": "sha256:ea3010b933bde8f193f00d275db92cb4c26186c2b966892efcc1cf03f06ac58b"
+    },
+    "ghcr.io/overlordtm/devcontainer-features/opencode-persistence:0": {
+      "version": "0.0.1",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/opencode-persistence@sha256:d53f90ba22ad76df963b21c402eb26527f24b9731c4c3cb206f21d658fe60a5f",
+      "integrity": "sha256:d53f90ba22ad76df963b21c402eb26527f24b9731c4c3cb206f21d658fe60a5f"
+    }
+  }
+}

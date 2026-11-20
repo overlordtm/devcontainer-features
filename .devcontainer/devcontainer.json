@@ -1,19 +1,24 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/debian
 {
-	"name": "devcontainer-features",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:trixie"
-
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Configure tool-specific properties.
-	// "customizations": {},
-
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+    "name": "devcontainer-features",
+    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+    "image": "mcr.microsoft.com/devcontainers/base:trixie",
+    "features": {
+        "ghcr.io/overlordtm/devcontainer-features/direnv:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/glab-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/opencode-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/claude-code:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/claude-code-persistence:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/opencode-persistence:0": {}
+    }
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    // "features": {},
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+    // Configure tool-specific properties.
+    // "customizations": {},
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "root"
 }

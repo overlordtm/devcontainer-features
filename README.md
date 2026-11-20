@@ -6,6 +6,7 @@ A collection of [Dev Container Features](https://containers.dev/implementors/fea
 
 | Feature | Description |
 | --- | --- |
+| [`claude-code`](src/claude-code) | Installs the Claude Code CLI from official native releases. |
 | [`claude-code-persistence`](src/claude-code-persistence) | Persists Claude Code account, settings, and session history across container rebuilds. |
 | [`opencode-cli`](src/opencode-cli) | Installs the OpenCode 2 CLI. |
 | [`opencode-persistence`](src/opencode-persistence) | Persists OpenCode config, authentication, and session data across container rebuilds. |
@@ -23,6 +24,7 @@ Features are published under the `overlordtm/devcontainer-features` namespace.
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
+        "ghcr.io/overlordtm/devcontainer-features/claude-code:0": {},
         "ghcr.io/overlordtm/devcontainer-features/direnv:0": {},
         "ghcr.io/overlordtm/devcontainer-features/glab-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {},
@@ -36,7 +38,7 @@ Features are published under the `overlordtm/devcontainer-features` namespace.
 ```jsonc
 {
     "features": {
-        "ghcr.io/anthropics/devcontainer-features/claude-code:1": {},
+        "ghcr.io/overlordtm/devcontainer-features/claude-code:0": {},
         "ghcr.io/overlordtm/devcontainer-features/claude-code-persistence:0": {},
 
         "ghcr.io/overlordtm/devcontainer-features/opencode-cli:0": {},

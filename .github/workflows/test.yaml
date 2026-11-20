@@ -17,6 +17,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - feature: claude-code
+            baseImage: debian:trixie
           - feature: claude-code-persistence
             baseImage: debian:trixie
           - feature: opencode-persistence
@@ -53,6 +55,7 @@ jobs:
       fail-fast: false
       matrix:
         feature:
+          - claude-code
           - claude-code-persistence
           - opencode-persistence
           - opencode-cli
