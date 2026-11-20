@@ -13,7 +13,7 @@
         "features": {
             "manage-packages": {
                 "install": "tree, unzip, bash",
-                "remove": "musl-utils"
+                "remove": "musl-utils, libc-utils"
             }
         }
     }

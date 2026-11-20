@@ -6,29 +6,39 @@
       "integrity": "sha256:081a1f21a45ca9d37483136bc9c4c9e46653f842e1f78f6295b6493019a581dc"
     },
     "ghcr.io/overlordtm/devcontainer-features/claude-code:0": {
-      "version": "0.0.2",
-      "resolved": "ghcr.io/overlordtm/devcontainer-features/claude-code@sha256:1b63d3fc9103000d36cce28118b03c02cf43fb1821262a93c412bb88ae498512",
-      "integrity": "sha256:1b63d3fc9103000d36cce28118b03c02cf43fb1821262a93c412bb88ae498512"
+      "version": "0.0.3",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/claude-code@sha256:13af2de8bdb006ea25c90c6d4cc08c2337186a3edf02b22fa1156276d2dd8579",
+      "integrity": "sha256:13af2de8bdb006ea25c90c6d4cc08c2337186a3edf02b22fa1156276d2dd8579"
     },
     "ghcr.io/overlordtm/devcontainer-features/direnv:0": {
-      "version": "0.0.2",
-      "resolved": "ghcr.io/overlordtm/devcontainer-features/direnv@sha256:fe933f8a58a4d1940fb78d4e2aa7e561a386ddadc7b1688a6be2bda89c1a826e",
-      "integrity": "sha256:fe933f8a58a4d1940fb78d4e2aa7e561a386ddadc7b1688a6be2bda89c1a826e"
+      "version": "0.0.3",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/direnv@sha256:52f92fd3df55de89716e1f49fb24cb9ccdd97d525e5dc48cfbb17b93bb79cbed",
+      "integrity": "sha256:52f92fd3df55de89716e1f49fb24cb9ccdd97d525e5dc48cfbb17b93bb79cbed"
     },
     "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {
-      "version": "0.0.2",
-      "resolved": "ghcr.io/overlordtm/devcontainer-features/fj-cli@sha256:2b0e58b3ec25fe3e936d86a6595472c870fea6e66a2cbc8c095ae2ac3cb4a77c",
-      "integrity": "sha256:2b0e58b3ec25fe3e936d86a6595472c870fea6e66a2cbc8c095ae2ac3cb4a77c"
+      "version": "0.0.6",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/fj-cli@sha256:14e96ded9902b9e5f8d31544abd7bbc94fb8bb63fda01121a4eac6460ba7297e",
+      "integrity": "sha256:14e96ded9902b9e5f8d31544abd7bbc94fb8bb63fda01121a4eac6460ba7297e"
+    },
+    "ghcr.io/overlordtm/devcontainer-features/gh-cli-persistence:0": {
+      "version": "0.0.1",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/gh-cli-persistence@sha256:f036e8c32225d1b21e8d3813eb3254416b2db6d9e1509fef5a5aa61a62eb3287",
+      "integrity": "sha256:f036e8c32225d1b21e8d3813eb3254416b2db6d9e1509fef5a5aa61a62eb3287"
+    },
+    "ghcr.io/overlordtm/devcontainer-features/gh-cli:0": {
+      "version": "0.0.1",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/gh-cli@sha256:959f42903428fed17e44ecd86095aeb30f1fe5a26a9f91fa6a97e2c9ec0c7afb",
+      "integrity": "sha256:959f42903428fed17e44ecd86095aeb30f1fe5a26a9f91fa6a97e2c9ec0c7afb"
     },
     "ghcr.io/overlordtm/devcontainer-features/glab-cli:0": {
-      "version": "0.0.2",
-      "resolved": "ghcr.io/overlordtm/devcontainer-features/glab-cli@sha256:18eee929c8bd0d46110171687cbd882b615b6d8be0efce02d3af91ab4b1f830f",
-      "integrity": "sha256:18eee929c8bd0d46110171687cbd882b615b6d8be0efce02d3af91ab4b1f830f"
+      "version": "0.0.3",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/glab-cli@sha256:a5b2e619c92a51054f20ecc2462faaf8f267f8f3a96e6eb0f8e46f91b35d1743",
+      "integrity": "sha256:a5b2e619c92a51054f20ecc2462faaf8f267f8f3a96e6eb0f8e46f91b35d1743"
     },
     "ghcr.io/overlordtm/devcontainer-features/opencode-cli:0": {
-      "version": "0.0.2",
-      "resolved": "ghcr.io/overlordtm/devcontainer-features/opencode-cli@sha256:52d38971af4e874b2c9910316abe7c62059ae279224b8515b59a1c86f7422cd7",
-      "integrity": "sha256:52d38971af4e874b2c9910316abe7c62059ae279224b8515b59a1c86f7422cd7"
+      "version": "0.0.3",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/opencode-cli@sha256:5a53d1411c1c983c77228c0b8c983ad5660734860cf2fbd162393138110c3618",
+      "integrity": "sha256:5a53d1411c1c983c77228c0b8c983ad5660734860cf2fbd162393138110c3618"
     },
     "ghcr.io/overlordtm/devcontainer-features/opencode-persistence:0": {
       "version": "0.0.1",
