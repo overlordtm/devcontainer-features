@@ -1,8 +1,5 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/debian
 {
     "name": "devcontainer-features",
-    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
     "image": "mcr.microsoft.com/devcontainers/base:trixie",
     "features": {
         "ghcr.io/overlordtm/devcontainer-features/direnv:0": {},
@@ -14,13 +11,16 @@
         "ghcr.io/overlordtm/devcontainer-features/opencode-persistence:0": {},
         "ghcr.io/overlordtm/devcontainer-features/gh-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/gh-cli-persistence:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/omz-plugins:0": {
+            "add": "zsh-autosuggestions zsh-syntax-highlighting gh"
+        },
+        "ghcr.io/overlordtm/devcontainer-features/shell-history:0": {}
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh"
+            }
+        }
     }
-    // Features to add to the dev container. More info: https://containers.dev/features.
-    // "features": {},
-    // Use 'forwardPorts' to make a list of ports inside the container available locally.
-    // "forwardPorts": [],
-    // Configure tool-specific properties.
-    // "customizations": {},
-    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-    // "remoteUser": "root"
 }
