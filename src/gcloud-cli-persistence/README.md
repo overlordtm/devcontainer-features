@@ -15,7 +15,7 @@ This is a **companion Feature**: it does not install the `gcloud` CLI. Use it al
 
 ## What it does
 
-Creates a Docker named volume named `gcloud-cli-state` and mounts it at `/dc/gcloud`. The volume contains:
+Creates a Docker named volume named `${devcontainerId}-gcloud-cli-state` and mounts it at `/dc/gcloud`. The volume contains:
 
 | Volume subdirectory | Symlinked from | Contents |
 | --- | --- | --- |
@@ -31,15 +31,7 @@ This Feature has no options.
 
 - The Feature assumes the default `~/.config/gcloud` path. If you override `CLOUDSDK_CONFIG` or `XDG_CONFIG_HOME`, `gcloud` will not use this symlink.
 - `~/.gsutil` (gsutil transfer state and caches) is deliberately **not** persisted because it is regenerable.
-- The volume is shared by every container on the same Docker host that uses this Feature, so you log in once across projects.
-- Compose-based dev containers may prefix the volume name with the Compose project name. Pin the name if you want true sharing:
-
-  ```yaml
-  volumes:
-    gcloud-cli-state:
-      name: gcloud-cli-state
-  ```
-
+- The volume is scoped to the dev container ID, so each project keeps its own credentials and configurations across rebuilds without sharing them with other containers on the Docker host. To wipe it, remove the volume with `docker volume rm <devcontainerId>-gcloud-cli-state`.
 - The volume contains OAuth credentials and access tokens. Treat it as sensitive.
 
 ## Testing

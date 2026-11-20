@@ -1,6 +1,6 @@
 {
     "id": "fj-cli-persistence",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "Forgejo CLI Persistence",
     "description": "Persists fj (Forgejo CLI) logins and configuration across container rebuilds using a Docker volume.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/fj-cli-persistence",
@@ -13,7 +13,7 @@
     ],
     "mounts": [
         {
-            "source": "fj-cli-state",
+            "source": "${devcontainerId}-fj-cli-state",
             "target": "/dc/fj",
             "type": "volume"
         }

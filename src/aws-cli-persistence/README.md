@@ -15,7 +15,7 @@ This is a **companion Feature**: it does not install the `aws` CLI. Use it along
 
 ## What it does
 
-Creates a Docker named volume named `aws-cli-state` and mounts it at `/dc/aws`. The volume contains:
+Creates a Docker named volume named `${devcontainerId}-aws-cli-state` and mounts it at `/dc/aws`. The volume contains:
 
 | Volume subdirectory | Symlinked from | Contents |
 | --- | --- | --- |
@@ -30,15 +30,7 @@ This Feature has no options.
 ## Notes
 
 - The Feature assumes the default `~/.aws` path. If you override `AWS_CONFIG_FILE`, `AWS_SHARED_CREDENTIALS_FILE`, or the CLI cache location, those paths are not persisted.
-- The volume is shared by every container on the same Docker host that uses this Feature, so you log in once across projects.
-- Compose-based dev containers may prefix the volume name with the Compose project name. Pin the name if you want true sharing:
-
-  ```yaml
-  volumes:
-    aws-cli-state:
-      name: aws-cli-state
-  ```
-
+- The volume is scoped to the dev container ID, so each project keeps its own credentials and SSO sessions across rebuilds without sharing them with other containers on the Docker host. To wipe it, remove the volume with `docker volume rm <devcontainerId>-aws-cli-state`.
 - The volume contains `~/.aws/credentials` and SSO token caches, which hold secrets. Treat it as sensitive.
 
 ## Testing

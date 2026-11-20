@@ -15,7 +15,7 @@ This is a **companion Feature**: it does not install the `opencode` CLI. Use it 
 
 ## What it does
 
-Creates a Docker named volume named `opencode-state` and mounts it at `/dc/opencode`. The volume contains:
+Creates a Docker named volume named `${devcontainerId}-opencode-state` and mounts it at `/dc/opencode`. The volume contains:
 
 | Volume subdirectory | Symlinked from | Contents |
 | --- | --- | --- |
@@ -34,15 +34,7 @@ This Feature has no options.
 ## Notes
 
 - The Feature assumes the default XDG paths. If you override `XDG_CONFIG_HOME`, `XDG_DATA_HOME`, or `XDG_STATE_HOME`, OpenCode will not use these symlinks.
-- The volume is shared by every container on the same Docker host that uses this Feature, so you authenticate once across projects.
-- Compose-based dev containers may prefix the volume name with the Compose project name. Pin the name if you want true sharing:
-
-  ```yaml
-  volumes:
-    opencode-state:
-      name: opencode-state
-  ```
-
+- The volume is scoped to the dev container ID, so each project keeps its own authentication and session data across rebuilds without sharing it with other containers on the Docker host. To wipe it, remove the volume with `docker volume rm <devcontainerId>-opencode-state`.
 - The volume contains credentials and session history. Treat it as sensitive.
 
 ## Testing

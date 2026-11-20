@@ -1,6 +1,6 @@
 {
     "id": "gh-cli-persistence",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "GitHub CLI Persistence",
     "description": "Persists gh (GitHub CLI) authentication, configuration, extensions, and state across container rebuilds using a Docker volume.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/gh-cli-persistence",
@@ -12,7 +12,7 @@
     ],
     "mounts": [
         {
-            "source": "gh-cli-state",
+            "source": "${devcontainerId}-gh-cli-state",
             "target": "/dc/gh",
             "type": "volume"
         }
