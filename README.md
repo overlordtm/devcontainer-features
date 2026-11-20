@@ -11,6 +11,7 @@ A collection of [Dev Container Features](https://containers.dev/implementors/fea
 | [`opencode-cli`](src/opencode-cli) | Installs the OpenCode 2 CLI. |
 | [`opencode-persistence`](src/opencode-persistence) | Persists OpenCode config, authentication, and session data across container rebuilds. |
 | [`direnv`](src/direnv) | Installs direnv and configures bash, zsh, and fish hooks. |
+| [`go`](src/go) | Installs the Go programming language toolchain from official upstream releases. |
 | [`shell-history`](src/shell-history) | Persists bash, zsh, and fish shell history across container rebuilds. |
 | [`omz-plugins`](src/omz-plugins) | Adds, removes, or replaces Oh My Zsh plugins in the remote user's `.zshrc`. |
 | [`glab-cli`](src/glab-cli) | Installs the official GitLab CLI (`glab`). |
@@ -53,6 +54,7 @@ Features are published under the `overlordtm/devcontainer-features` namespace.
     "features": {
         "ghcr.io/overlordtm/devcontainer-features/claude-code:0": {},
         "ghcr.io/overlordtm/devcontainer-features/direnv:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/go:0": {},
         "ghcr.io/overlordtm/devcontainer-features/shell-history:0": {},
         "ghcr.io/overlordtm/devcontainer-features/omz-plugins:0": {
             "add": "zsh-autosuggestions, zsh-syntax-highlighting"

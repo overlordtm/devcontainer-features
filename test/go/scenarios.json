@@ -1,0 +1,11 @@
+{
+    "pinned": {
+        "image": "debian:trixie",
+        "features": {
+            "go": {
+                "version": "1.27.4",
+                "hash": "disabled"
+            }
+        }
+    }
+}
