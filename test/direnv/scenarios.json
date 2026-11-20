@@ -1,0 +1,11 @@
+{
+    "pinned": {
+        "image": "debian:trixie",
+        "features": {
+            "direnv": {
+                "version": "2.38.2",
+                "configureShells": false
+            }
+        }
+    }
+}

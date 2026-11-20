@@ -1,0 +1,10 @@
+{
+    "pinned": {
+        "image": "debian:trixie",
+        "features": {
+            "glab-cli": {
+                "version": "1.131.0"
+            }
+        }
+    }
+}

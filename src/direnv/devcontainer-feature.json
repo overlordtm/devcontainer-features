@@ -1,0 +1,31 @@
+{
+    "id": "direnv",
+    "version": "1.0.0",
+    "name": "direnv",
+    "description": "Installs direnv and configures shell hooks for bash, zsh, and fish.",
+    "keywords": [
+        "direnv",
+        "environment",
+        "shell",
+        "dotenv"
+    ],
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "2.38.2"
+            ],
+            "default": "latest",
+            "description": "Version of direnv to install."
+        },
+        "configureShells": {
+            "type": "boolean",
+            "default": true,
+            "description": "Add direnv hooks to the system-wide bash, zsh, and fish startup files."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

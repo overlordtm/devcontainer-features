@@ -1,0 +1,25 @@
+{
+    "id": "glab-cli",
+    "version": "1.0.0",
+    "name": "GitLab CLI (glab)",
+    "description": "Installs the official GitLab CLI (glab) from GitLab releases.",
+    "keywords": [
+        "gitlab",
+        "glab",
+        "cli"
+    ],
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "1.131.0"
+            ],
+            "default": "latest",
+            "description": "Version of glab to install."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "id": "claude-code-persistence",
+    "version": "1.0.0",
+    "name": "Claude Code Persistence",
+    "description": "Persists Claude Code account, settings, and session history across container rebuilds using a Docker volume.",
+    "keywords": [
+        "claude",
+        "claude-code",
+        "ai",
+        "persistence",
+        "volume"
+    ],
+    "mounts": [
+        {
+            "source": "claude-code-config",
+            "target": "/dc/claude",
+            "type": "volume"
+        }
+    ],
+    "containerEnv": {
+        "CLAUDE_CONFIG_DIR": "/dc/claude"
+    },
+    "onCreateCommand": {
+        "claude-code-persistence": "/usr/local/share/claude-code-persistence/oncreate.sh"
+    },
+    "installsAfter": [
+        "ghcr.io/anthropics/devcontainer-features/claude-code",
+        "ghcr.io/devcontainers-extra/features/claude-code",
+        "ghcr.io/stu-bell/devcontainer-features/claude-code",
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

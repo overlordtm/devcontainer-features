@@ -1,0 +1,38 @@
+name: "Release Dev Container Features"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/**"
+  workflow_dispatch:
+
+concurrency:
+  group: features-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Packages each folder in ./src as a devcontainer-feature-<id>.tgz and
+      # pushes it to ghcr.io/<owner>/<repo>/<id> using the OCI artifact
+      # distribution format. It also publishes the devcontainer-collection.json
+      # metadata at ghcr.io/<owner>/<repo>:latest.
+      - name: Publish Features to GHCR
+        uses: devcontainers/action@v1
+        with:
+          publish-features: "true"
+          base-path-to-features: "./src"
+          generate-docs: "false"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

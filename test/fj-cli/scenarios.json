@@ -1,0 +1,10 @@
+{
+    "pinned": {
+        "image": "debian:trixie",
+        "features": {
+            "fj-cli": {
+                "version": "0.7.0"
+            }
+        }
+    }
+}
