@@ -21,6 +21,8 @@ jobs:
             baseImage: debian:trixie
           - feature: opencode-persistence
             baseImage: debian:trixie
+          - feature: opencode-cli
+            baseImage: debian:trixie
           - feature: direnv
             baseImage: debian:trixie
           - feature: glab-cli
@@ -53,6 +55,7 @@ jobs:
         feature:
           - claude-code-persistence
           - opencode-persistence
+          - opencode-cli
           - direnv
           - glab-cli
           - fj-cli

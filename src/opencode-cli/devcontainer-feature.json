@@ -1,0 +1,26 @@
+{
+    "id": "opencode-cli",
+    "version": "0.0.1",
+    "name": "OpenCode CLI",
+    "description": "Installs the OpenCode 2 CLI from the official npm platform packages.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/opencode-cli",
+    "keywords": [
+        "opencode",
+        "ai",
+        "cli"
+    ],
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "2.3.2"
+            ],
+            "default": "latest",
+            "description": "Version of OpenCode 2 to install."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

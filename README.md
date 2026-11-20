@@ -7,6 +7,7 @@ A collection of [Dev Container Features](https://containers.dev/implementors/fea
 | Feature | Description |
 | --- | --- |
 | [`claude-code-persistence`](src/claude-code-persistence) | Persists Claude Code account, settings, and session history across container rebuilds. |
+| [`opencode-cli`](src/opencode-cli) | Installs the OpenCode 2 CLI. |
 | [`opencode-persistence`](src/opencode-persistence) | Persists OpenCode config, authentication, and session data across container rebuilds. |
 | [`direnv`](src/direnv) | Installs direnv and configures bash, zsh, and fish hooks. |
 | [`glab-cli`](src/glab-cli) | Installs the official GitLab CLI (`glab`). |
@@ -24,7 +25,8 @@ Features are published under the `overlordtm/devcontainer-features` namespace.
     "features": {
         "ghcr.io/overlordtm/devcontainer-features/direnv:0": {},
         "ghcr.io/overlordtm/devcontainer-features/glab-cli:0": {},
-        "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {}
+        "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/opencode-cli:0": {}
     }
 }
 ```
@@ -37,7 +39,7 @@ Features are published under the `overlordtm/devcontainer-features` namespace.
         "ghcr.io/anthropics/devcontainer-features/claude-code:1": {},
         "ghcr.io/overlordtm/devcontainer-features/claude-code-persistence:0": {},
 
-        "ghcr.io/jsburckhardt/devcontainer-features/opencode:1": {},
+        "ghcr.io/overlordtm/devcontainer-features/opencode-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/opencode-persistence:0": {}
     }
 }

@@ -7,7 +7,7 @@ This is a **companion Feature**: it does not install the `opencode` CLI. Use it 
 ```jsonc
 {
     "features": {
-        "ghcr.io/jsburckhardt/devcontainer-features/opencode:1": {},
+        "ghcr.io/overlordtm/devcontainer-features/opencode-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/opencode-persistence:0": {}
     }
 }
