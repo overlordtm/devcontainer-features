@@ -1,8 +1,9 @@
 {
     "id": "direnv",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "name": "direnv",
     "description": "Installs direnv and configures shell hooks for bash, zsh, and fish.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/direnv",
     "keywords": [
         "direnv",
         "environment",

@@ -13,7 +13,7 @@ Installs the official [GitLab CLI](https://gitlab.com/gitlab-org/cli) from GitLa
 ```jsonc
 {
     "features": {
-        "ghcr.io/OWNER/devcontainer-features/glab-cli:1": {
+        "ghcr.io/overlordtm/devcontainer-features/glab-cli:0": {
             "version": "latest"
         }
     }

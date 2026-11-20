@@ -13,7 +13,7 @@ Installs [`fj`](https://codeberg.org/forgejo-contrib/forgejo-cli), a command-lin
 ```jsonc
 {
     "features": {
-        "ghcr.io/OWNER/devcontainer-features/fj-cli:1": {
+        "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {
             "version": "latest"
         }
     }

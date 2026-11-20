@@ -23,7 +23,7 @@ Set `configureShells` to `false` if you manage direnv hooks yourself.
 ```jsonc
 {
     "features": {
-        "ghcr.io/OWNER/devcontainer-features/direnv:1": {
+        "ghcr.io/overlordtm/devcontainer-features/direnv:0": {
             "version": "latest"
         }
     }
