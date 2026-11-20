@@ -8,7 +8,7 @@ This is a **companion Feature**: it does not install the `opencode` CLI. Use it 
 {
     "features": {
         "ghcr.io/jsburckhardt/devcontainer-features/opencode:1": {},
-        "ghcr.io/OWNER/devcontainer-features/opencode-persistence:1": {}
+        "ghcr.io/OWNER/devcontainer-features/opencode-persistence:0": {}
     }
 }
 ```

@@ -22,9 +22,9 @@ Replace `OWNER` with the GitHub user or organization that publishes this collect
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/OWNER/devcontainer-features/direnv:1": {},
-        "ghcr.io/OWNER/devcontainer-features/glab-cli:1": {},
-        "ghcr.io/OWNER/devcontainer-features/fj-cli:1": {}
+        "ghcr.io/OWNER/devcontainer-features/direnv:0": {},
+        "ghcr.io/OWNER/devcontainer-features/glab-cli:0": {},
+        "ghcr.io/OWNER/devcontainer-features/fj-cli:0": {}
     }
 }
 ```
@@ -35,10 +35,10 @@ Replace `OWNER` with the GitHub user or organization that publishes this collect
 {
     "features": {
         "ghcr.io/anthropics/devcontainer-features/claude-code:1": {},
-        "ghcr.io/OWNER/devcontainer-features/claude-code-persistence:1": {},
+        "ghcr.io/OWNER/devcontainer-features/claude-code-persistence:0": {},
 
         "ghcr.io/jsburckhardt/devcontainer-features/opencode:1": {},
-        "ghcr.io/OWNER/devcontainer-features/opencode-persistence:1": {}
+        "ghcr.io/OWNER/devcontainer-features/opencode-persistence:0": {}
     }
 }
 ```
@@ -65,8 +65,8 @@ The [`.github/workflows/release.yaml`](.github/workflows/release.yaml) workflow 
 Each Feature is published under the collection namespace `<owner>/<repo>`, for example:
 
 ```text
-ghcr.io/OWNER/devcontainer-features/direnv:1
-ghcr.io/OWNER/devcontainer-features/direnv:1.0.0
+ghcr.io/OWNER/devcontainer-features/direnv:0
+ghcr.io/OWNER/devcontainer-features/direnv:0.0.1
 ```
 
 The action also publishes the `devcontainer-collection.json` metadata at `ghcr.io/OWNER/devcontainer-features:latest`.

@@ -1,6 +1,6 @@
 {
     "id": "opencode-persistence",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "name": "OpenCode Persistence",
     "description": "Persists OpenCode config, authentication, and session data across container rebuilds using a Docker volume.",
     "keywords": [

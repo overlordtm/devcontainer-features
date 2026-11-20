@@ -8,7 +8,7 @@ This is a **companion Feature**: it does not install the `claude` CLI. Use it al
 {
     "features": {
         "ghcr.io/anthropics/devcontainer-features/claude-code:1": {},
-        "ghcr.io/OWNER/devcontainer-features/claude-code-persistence:1": {}
+        "ghcr.io/OWNER/devcontainer-features/claude-code-persistence:0": {}
     }
 }
 ```

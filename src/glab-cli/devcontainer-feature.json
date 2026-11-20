@@ -1,6 +1,6 @@
 {
     "id": "glab-cli",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "name": "GitLab CLI (glab)",
     "description": "Installs the official GitLab CLI (glab) from GitLab releases.",
     "keywords": [
