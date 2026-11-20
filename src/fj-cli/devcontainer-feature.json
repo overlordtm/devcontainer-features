@@ -1,6 +1,6 @@
 {
     "id": "fj-cli",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "name": "Forgejo CLI (fj)",
     "description": "Installs fj, the Forgejo and Gitea command-line client, from official releases.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/fj-cli",
@@ -28,7 +28,19 @@
             ],
             "default": "auto",
             "description": "SHA-256/SHA-512 checksum for the downloaded artifact. Use 'auto' to look it up in the built-in version map, or 'disabled' to skip verification."
+        },
+        "client_id": {
+            "type": "string",
+            "proposals": [
+                "forge.example.com 00000000-0000-0000-0000-000000000000",
+                "fj-client_ids"
+            ],
+            "default": "",
+            "description": "OAuth client ID mapping for fj. Use '<host> <uuid>' to write /etc/fj/client_ids, or the name of a file in the workspace .devcontainer directory to copy there."
         }
+    },
+    "onCreateCommand": {
+        "fj-cli": "/usr/local/share/fj-cli/oncreate.sh"
     },
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils"

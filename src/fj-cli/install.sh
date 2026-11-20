@@ -3,6 +3,11 @@ set -euo pipefail
 
 VERSION="${VERSION:-latest}"
 HASH_INPUT="${HASH:-auto}"
+CLIENT_ID="${CLIENT_ID:-}"
+CLIENT_ID_STATE_DIR="/usr/local/share/fj-cli"
+CLIENT_ID_STATE_FILE="${CLIENT_ID_STATE_DIR}/client_id"
+CLIENT_IDS_DIR="/etc/fj"
+CLIENT_IDS_FILE="${CLIENT_IDS_DIR}/client_ids"
 
 if [ "$(id -u)" -ne 0 ]; then
     echo "Script must be run as root. Use sudo, su, or add \"USER root\" to your Dockerfile before running this script." >&2
@@ -136,6 +141,83 @@ is_musl() {
     return 1
 }
 
+is_client_id_mapping() {
+    [[ "$1" =~ ^[^[:space:]]+[[:space:]]+[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$ ]]
+}
+
+is_client_id_filename() {
+    case "$1" in
+        '' | . | ..) return 1 ;;
+    esac
+    [[ "$1" =~ ^[A-Za-z0-9._-]+$ ]]
+}
+
+find_client_ids_source() {
+    name="$1"
+
+    check_dir() {
+        [ -n "$1" ] || return 1
+        candidate="${1%/}/.devcontainer/${name}"
+        if [ -f "${candidate}" ]; then
+            printf '%s\n' "${candidate}"
+            return 0
+        fi
+        return 1
+    }
+
+    for base in "${PWD:-}" "${containerWorkspaceFolder:-}" "${_REMOTE_USER_HOME:-}"; do
+        if check_dir "${base}"; then
+            return 0
+        fi
+    done
+
+    # Walk up from the current directory so a build context nested below the
+    # workspace (for example in the Features test harness) can be found too.
+    dir="${PWD:-}"
+    while [ -n "${dir}" ] && [ "${dir}" != "/" ]; do
+        if check_dir "$(dirname "${dir}")"; then
+            return 0
+        fi
+        dir="$(dirname "${dir}")"
+    done
+
+    for base in /workspaces/* /workspace /src; do
+        if check_dir "${base}"; then
+            return 0
+        fi
+    done
+
+    return 1
+}
+
+install_client_ids() {
+    value="$1"
+
+    if is_client_id_mapping "${value}"; then
+        install -d -m 0755 "${CLIENT_IDS_DIR}"
+        printf '%s\n' "${value}" > "${CLIENT_IDS_FILE}"
+        chmod 0644 "${CLIENT_IDS_FILE}"
+        echo "Wrote OAuth client ID mapping to ${CLIENT_IDS_FILE}."
+        return 0
+    fi
+
+    if ! is_client_id_filename "${value}"; then
+        echo "Invalid client_id option: expected '<host> <uuid>' or a file name." >&2
+        return 1
+    fi
+
+    if source_file="$(find_client_ids_source "${value}")"; then
+        install -d -m 0755 "${CLIENT_IDS_DIR}"
+        install -m 0644 "${source_file}" "${CLIENT_IDS_FILE}"
+        echo "Copied ${source_file} to ${CLIENT_IDS_FILE}."
+        return 0
+    fi
+
+    # The workspace is normally mounted only when the container starts, so the
+    # file fallback is completed by oncreate.sh at that point.
+    echo "client_id file '${value}' was not found under .devcontainer; it will be copied when the container starts."
+}
+
 install_with_cargo() {
     echo "Falling back to 'cargo install forgejo-cli'..."
     if ! command -v cargo >/dev/null 2>&1; then
@@ -162,6 +244,15 @@ fi
 if [ -n "${MISSING_PACKAGES}" ]; then
     # shellcheck disable=SC2086
     install_packages ${MISSING_PACKAGES}
+fi
+
+mkdir -p "${CLIENT_ID_STATE_DIR}"
+install -m 0755 "$(dirname "$0")/oncreate.sh" "${CLIENT_ID_STATE_DIR}/oncreate.sh"
+
+if [ -n "${CLIENT_ID}" ]; then
+    printf '%s\n' "${CLIENT_ID}" > "${CLIENT_ID_STATE_FILE}"
+    chmod 0644 "${CLIENT_ID_STATE_FILE}"
+    install_client_ids "${CLIENT_ID}"
 fi
 
 if is_musl; then

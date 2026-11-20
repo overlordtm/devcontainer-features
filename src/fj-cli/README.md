@@ -8,6 +8,7 @@ Installs [`fj`](https://codeberg.org/forgejo-contrib/forgejo-cli), a command-lin
 | --- | --- | --- | --- |
 | `version` | string | `latest` | `fj` version to install, for example `0.7.0`. |
 | `hash` | string | `auto` | SHA-256/SHA-512 checksum, `auto` to use the built-in checksum map, or `disabled` to skip verification. |
+| `client_id` | string | `""` | OAuth client ID mapping for `fj`: either `<host> <uuid>` or the name of a file in the workspace `.devcontainer` directory. |
 
 ## Usage
 
@@ -20,6 +21,37 @@ Installs [`fj`](https://codeberg.org/forgejo-contrib/forgejo-cli), a command-lin
     }
 }
 ```
+
+## OAuth client IDs
+
+`fj auth login` only supports OAuth for a known list of instances. To add another instance, provide its OAuth client ID mapping through the `client_id` option. The following forms are accepted:
+
+- An inline mapping made of a host or URL, one or more whitespace characters, and a UUID, for example `forge.example.com 00112233-4455-6677-8899-aabbccddeeff`. The value is written to `/etc/fj/client_ids` during the image build.
+- A file name such as `fj-client_ids`. If the value does not look like an inline mapping, it is treated as the name of a file in the workspace `.devcontainer` directory. Because the workspace is not available while the image is built, the file is copied to `/etc/fj/client_ids` when the container is created.
+
+```jsonc
+{
+    "features": {
+        "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {
+            "client_id": "forge.example.com 00112233-4455-6677-8899-aabbccddeeff"
+        }
+    }
+}
+```
+
+Or, with a file named `.devcontainer/fj-client_ids`:
+
+```jsonc
+{
+    "features": {
+        "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {
+            "client_id": "fj-client_ids"
+        }
+    }
+}
+```
+
+The file uses the same format as `/etc/fj/client_ids`: one `<host> <uuid>` mapping per line.
 
 ## Notes
 

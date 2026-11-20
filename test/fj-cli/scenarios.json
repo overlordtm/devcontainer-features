@@ -7,5 +7,25 @@
                 "hash": "disabled"
             }
         }
+    },
+    "client_id_inline": {
+        "image": "debian:trixie",
+        "features": {
+            "fj-cli": {
+                "version": "0.7.0",
+                "hash": "disabled",
+                "client_id": "forge.example.com 00112233-4455-6677-8899-aabbccddeeff"
+            }
+        }
+    },
+    "client_id_file": {
+        "image": "debian:trixie",
+        "features": {
+            "fj-cli": {
+                "version": "0.7.0",
+                "hash": "disabled",
+                "client_id": "fj-client_ids"
+            }
+        }
     }
 }
