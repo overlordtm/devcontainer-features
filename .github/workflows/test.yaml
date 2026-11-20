@@ -39,7 +39,13 @@ jobs:
           - gcx-cli
           - gcx-cli-persistence
           - gitleaks-cli
+          - gcloud-cli
+          - gcloud-cli-persistence
+          - aws-cli
+          - aws-cli-persistence
           - tflint-cli
+          - uv-cli
+          - ruff-cli
           - fj-cli
           - fj-cli-persistence
           - manage-packages
@@ -47,6 +53,12 @@ jobs:
           # fj-cli only publishes glibc binaries. The Alpine base image does not
           # include Cargo, so the documented musl fallback cannot run there.
           - feature: fj-cli
+            baseImage: mcr.microsoft.com/devcontainers/base:alpine
+          # The Google Cloud CLI and AWS CLI v2 Linux bundles are linked
+          # against glibc and are not supported on musl-based Alpine.
+          - feature: gcloud-cli
+            baseImage: mcr.microsoft.com/devcontainers/base:alpine
+          - feature: aws-cli
             baseImage: mcr.microsoft.com/devcontainers/base:alpine
     steps:
       - uses: actions/checkout@v4
@@ -88,7 +100,13 @@ jobs:
           - gcx-cli
           - gcx-cli-persistence
           - gitleaks-cli
+          - gcloud-cli
+          - gcloud-cli-persistence
+          - aws-cli
+          - aws-cli-persistence
           - tflint-cli
+          - uv-cli
+          - ruff-cli
           - fj-cli
           - fj-cli-persistence
           - manage-packages

@@ -1,0 +1,11 @@
+{
+    "pinned": {
+        "image": "debian:trixie",
+        "features": {
+            "uv-cli": {
+                "version": "0.13.9",
+                "hash": "disabled"
+            }
+        }
+    }
+}

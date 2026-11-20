@@ -1,0 +1,23 @@
+{
+    "root_user": {
+        "image": "debian:trixie",
+        "features": {
+            "gcloud-cli-persistence": {}
+        },
+        "remoteUser": "root"
+    },
+    "non_root": {
+        "image": "debian:trixie",
+        "features": {
+            "ghcr.io/devcontainers/features/common-utils:2": {
+                "username": "vscode",
+                "upgradePackages": false,
+                "installZsh": false,
+                "installOhMyZsh": false,
+                "installOhMyZshConfig": false
+            },
+            "gcloud-cli-persistence": {}
+        },
+        "remoteUser": "vscode"
+    }
+}

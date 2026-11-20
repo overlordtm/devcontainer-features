@@ -1,0 +1,11 @@
+{
+    "pinned": {
+        "image": "debian:trixie",
+        "features": {
+            "gcloud-cli": {
+                "version": "594.0.0",
+                "hash": "disabled"
+            }
+        }
+    }
+}

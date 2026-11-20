@@ -1,0 +1,38 @@
+{
+    "id": "ruff-cli",
+    "version": "0.0.1",
+    "name": "Ruff CLI (ruff)",
+    "description": "Installs the Ruff Python linter and formatter CLI (ruff) from official GitHub releases.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/ruff-cli",
+    "keywords": [
+        "ruff",
+        "python",
+        "lint",
+        "linter",
+        "formatter",
+        "cli"
+    ],
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "0.17.6",
+                "latest"
+            ],
+            "default": "0.17.6",
+            "description": "Version of Ruff to install."
+        },
+        "hash": {
+            "type": "string",
+            "proposals": [
+                "auto",
+                "disabled"
+            ],
+            "default": "auto",
+            "description": "SHA-256/SHA-512 checksum for the downloaded artifact. Use 'auto' to look it up in the built-in version map, or 'disabled' to skip verification."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

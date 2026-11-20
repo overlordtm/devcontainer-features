@@ -22,7 +22,13 @@ A collection of [Dev Container Features](https://containers.dev/implementors/fea
 | [`gcx-cli`](src/gcx-cli) | Installs the Grafana CLI (`gcx`). |
 | [`gcx-cli-persistence`](src/gcx-cli-persistence) | Persists `gcx` configuration across container rebuilds. |
 | [`gitleaks-cli`](src/gitleaks-cli) | Installs the Gitleaks secret scanning CLI (`gitleaks`). |
+| [`gcloud-cli`](src/gcloud-cli) | Installs the Google Cloud CLI (`gcloud`, `gsutil`, and `bq`). |
+| [`gcloud-cli-persistence`](src/gcloud-cli-persistence) | Persists `gcloud` configuration and credentials across container rebuilds. |
+| [`aws-cli`](src/aws-cli) | Installs the AWS CLI v2 (`aws`). |
+| [`aws-cli-persistence`](src/aws-cli-persistence) | Persists `aws` configuration, credentials, and SSO sessions across container rebuilds. |
 | [`tflint-cli`](src/tflint-cli) | Installs the TFLint Terraform linter CLI (`tflint`). |
+| [`uv-cli`](src/uv-cli) | Installs the uv Python package and project manager CLI (`uv` and `uvx`). |
+| [`ruff-cli`](src/ruff-cli) | Installs the Ruff Python linter and formatter CLI (`ruff`). |
 | [`fj-cli`](src/fj-cli) | Installs `fj`, the Forgejo/Gitea CLI. |
 | [`fj-cli-persistence`](src/fj-cli-persistence) | Persists `fj` logins and configuration across container rebuilds. |
 | [`manage-packages`](src/manage-packages) | Installs and removes system packages with apt or apk, then cleans the package cache. |
@@ -58,6 +64,8 @@ Features are published under the `overlordtm/devcontainer-features` namespace.
         "ghcr.io/overlordtm/devcontainer-features/age-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/gcx-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/gitleaks-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/gcloud-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/aws-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/tflint-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/opencode-cli:0": {},
@@ -86,7 +94,13 @@ Features are published under the `overlordtm/devcontainer-features` namespace.
         "ghcr.io/overlordtm/devcontainer-features/gh-cli-persistence:0": {},
 
         "ghcr.io/overlordtm/devcontainer-features/gcx-cli:0": {},
-        "ghcr.io/overlordtm/devcontainer-features/gcx-cli-persistence:0": {}
+        "ghcr.io/overlordtm/devcontainer-features/gcx-cli-persistence:0": {},
+
+        "ghcr.io/overlordtm/devcontainer-features/gcloud-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/gcloud-cli-persistence:0": {},
+
+        "ghcr.io/overlordtm/devcontainer-features/aws-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/aws-cli-persistence:0": {}
     }
 }
 ```

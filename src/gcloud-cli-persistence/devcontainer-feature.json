@@ -1,0 +1,27 @@
+{
+    "id": "gcloud-cli-persistence",
+    "version": "0.0.1",
+    "name": "Google Cloud CLI Persistence",
+    "description": "Persists gcloud (Google Cloud CLI) configuration, credentials, and active configurations across container rebuilds using a Docker volume.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/gcloud-cli-persistence",
+    "keywords": [
+        "google-cloud",
+        "gcloud",
+        "persistence",
+        "volume"
+    ],
+    "mounts": [
+        {
+            "source": "gcloud-cli-state",
+            "target": "/dc/gcloud",
+            "type": "volume"
+        }
+    ],
+    "onCreateCommand": {
+        "gcloud-cli-persistence": "/usr/local/share/gcloud-cli-persistence/oncreate.sh"
+    },
+    "installsAfter": [
+        "ghcr.io/overlordtm/devcontainer-features/gcloud-cli",
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

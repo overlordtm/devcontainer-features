@@ -1,0 +1,38 @@
+{
+    "id": "uv-cli",
+    "version": "0.0.1",
+    "name": "uv CLI (uv)",
+    "description": "Installs the uv Python package and project manager CLI (uv and uvx) from official GitHub releases.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/uv-cli",
+    "keywords": [
+        "uv",
+        "uvx",
+        "python",
+        "package-manager",
+        "virtualenv",
+        "cli"
+    ],
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "0.13.9",
+                "latest"
+            ],
+            "default": "0.13.9",
+            "description": "Version of uv to install."
+        },
+        "hash": {
+            "type": "string",
+            "proposals": [
+                "auto",
+                "disabled"
+            ],
+            "default": "auto",
+            "description": "SHA-256/SHA-512 checksum for the downloaded artifact. Use 'auto' to look it up in the built-in version map, or 'disabled' to skip verification."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

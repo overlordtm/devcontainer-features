@@ -1,0 +1,11 @@
+{
+    "pinned": {
+        "image": "debian:trixie",
+        "features": {
+            "aws-cli": {
+                "version": "2.42.0",
+                "hash": "disabled"
+            }
+        }
+    }
+}

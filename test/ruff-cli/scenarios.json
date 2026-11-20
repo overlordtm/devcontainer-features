@@ -1,0 +1,11 @@
+{
+    "pinned": {
+        "image": "debian:trixie",
+        "features": {
+            "ruff-cli": {
+                "version": "0.17.6",
+                "hash": "disabled"
+            }
+        }
+    }
+}
