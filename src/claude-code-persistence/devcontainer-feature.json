@@ -1,8 +1,9 @@
 {
     "id": "claude-code-persistence",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "name": "Claude Code Persistence",
     "description": "Persists Claude Code account, settings, and session history across container rebuilds using a Docker volume.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/claude-code-persistence",
     "keywords": [
         "claude",
         "claude-code",
@@ -24,6 +25,7 @@
         "claude-code-persistence": "/usr/local/share/claude-code-persistence/oncreate.sh"
     },
     "installsAfter": [
+        "ghcr.io/overlordtm/devcontainer-features/claude-code",
         "ghcr.io/anthropics/devcontainer-features/claude-code",
         "ghcr.io/devcontainers-extra/features/claude-code",
         "ghcr.io/stu-bell/devcontainer-features/claude-code",

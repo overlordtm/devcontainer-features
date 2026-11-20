@@ -1,8 +1,9 @@
 {
     "id": "glab-cli",
-    "version": "1.0.0",
+    "version": "0.0.3",
     "name": "GitLab CLI (glab)",
     "description": "Installs the official GitLab CLI (glab) from GitLab releases.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/glab-cli",
     "keywords": [
         "gitlab",
         "glab",
@@ -12,11 +13,20 @@
         "version": {
             "type": "string",
             "proposals": [
-                "latest",
-                "1.131.0"
+                "1.131.0",
+                "latest"
             ],
-            "default": "latest",
+            "default": "1.131.0",
             "description": "Version of glab to install."
+        },
+        "hash": {
+            "type": "string",
+            "proposals": [
+                "auto",
+                "disabled"
+            ],
+            "default": "auto",
+            "description": "SHA-256/SHA-512 checksum for the downloaded artifact. Use 'auto' to look it up in the built-in version map, or 'disabled' to skip verification."
         }
     },
     "installsAfter": [

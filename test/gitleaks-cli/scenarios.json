@@ -1,0 +1,11 @@
+{
+    "pinned": {
+        "image": "debian:trixie",
+        "features": {
+            "gitleaks-cli": {
+                "version": "8.30.1",
+                "hash": "disabled"
+            }
+        }
+    }
+}

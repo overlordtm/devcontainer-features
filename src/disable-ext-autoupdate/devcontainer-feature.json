@@ -1,0 +1,14 @@
+{
+  "id": "disable-ext-autoupdate",
+  "version": "1.0.0",
+  "name": "Disable VS Code Extension Auto-Update",
+  "description": "Sets extensions.autoUpdate to false inside the dev container",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "extensions.autoUpdate": false,
+        "extensions.autoCheckUpdates": false
+      }
+    }
+  }
+}

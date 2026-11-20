@@ -1,0 +1,36 @@
+{
+    "id": "sops-cli",
+    "version": "0.0.2",
+    "name": "SOPS CLI (sops)",
+    "description": "Installs the SOPS secrets management CLI (sops) from official GitHub releases.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/sops-cli",
+    "keywords": [
+        "sops",
+        "secrets",
+        "encryption",
+        "cli"
+    ],
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "3.13.3",
+                "latest"
+            ],
+            "default": "3.13.3",
+            "description": "Version of sops to install."
+        },
+        "hash": {
+            "type": "string",
+            "proposals": [
+                "auto",
+                "disabled"
+            ],
+            "default": "auto",
+            "description": "SHA-256/SHA-512 checksum for the downloaded artifact. Use 'auto' to look it up in the built-in version map, or 'disabled' to skip verification."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

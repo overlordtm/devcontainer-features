@@ -6,25 +6,58 @@ A collection of [Dev Container Features](https://containers.dev/implementors/fea
 
 | Feature | Description |
 | --- | --- |
+| [`claude-code`](src/claude-code) | Installs the Claude Code CLI from official native releases. |
 | [`claude-code-persistence`](src/claude-code-persistence) | Persists Claude Code account, settings, and session history across container rebuilds. |
+| [`opencode-cli`](src/opencode-cli) | Installs the OpenCode 2 CLI. |
 | [`opencode-persistence`](src/opencode-persistence) | Persists OpenCode config, authentication, and session data across container rebuilds. |
 | [`direnv`](src/direnv) | Installs direnv and configures bash, zsh, and fish hooks. |
 | [`glab-cli`](src/glab-cli) | Installs the official GitLab CLI (`glab`). |
+| [`gh-cli`](src/gh-cli) | Installs the GitHub CLI (`gh`). |
+| [`gh-cli-persistence`](src/gh-cli-persistence) | Persists `gh` authentication, configuration, extensions, and state across container rebuilds. |
+| [`opentofu-cli`](src/opentofu-cli) | Installs the OpenTofu CLI (`tofu`). |
+| [`sops-cli`](src/sops-cli) | Installs the SOPS secrets management CLI (`sops`). |
+| [`age-cli`](src/age-cli) | Installs the age encryption CLI (`age` and `age-keygen`). |
+| [`gcx-cli`](src/gcx-cli) | Installs the Grafana CLI (`gcx`). |
+| [`gcx-cli-persistence`](src/gcx-cli-persistence) | Persists `gcx` configuration across container rebuilds. |
+| [`gitleaks-cli`](src/gitleaks-cli) | Installs the Gitleaks secret scanning CLI (`gitleaks`). |
+| [`tflint-cli`](src/tflint-cli) | Installs the TFLint Terraform linter CLI (`tflint`). |
 | [`fj-cli`](src/fj-cli) | Installs `fj`, the Forgejo/Gitea CLI. |
+| [`fj-cli-persistence`](src/fj-cli-persistence) | Persists `fj` logins and configuration across container rebuilds. |
+| [`manage-packages`](src/manage-packages) | Installs and removes system packages with apt or apk, then cleans the package cache. |
 
-The `*-persistence` Features are companion Features: they do not install the agent itself. Pair them with an installation Feature or install the CLI through your image/Dockerfile.
+The `*-persistence` Features are companion Features: they do not install the tool itself. Pair them with an installation Feature or install the CLI through your image/Dockerfile.
+
+## Download verification
+
+Every CLI-installing Feature verifies downloaded artifacts against a built-in SHA-256 map of vetted versions. If you install a version that is not in the map, pass your own digest through the `hash` option, or set `"hash": "disabled"` to skip verification. A newly published upstream `latest` release is therefore rejected until the Feature's checksum map is updated (or you provide a digest). See the README of each Feature for details.
+
+## Version defaults
+
+Each CLI-installing Feature pins its `version` option to a specific, checksum-verified release, so builds are reproducible and do not depend on a release lookup at build time. Set `"version": "latest"` (or another version) explicitly if you want to resolve or install something else.
 
 ## Usage
 
-Replace `OWNER` with the GitHub user or organization that publishes this collection.
+Features are published under the `overlordtm/devcontainer-features` namespace.
 
 ```jsonc
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/OWNER/devcontainer-features/direnv:1": {},
-        "ghcr.io/OWNER/devcontainer-features/glab-cli:1": {},
-        "ghcr.io/OWNER/devcontainer-features/fj-cli:1": {}
+        "ghcr.io/overlordtm/devcontainer-features/claude-code:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/direnv:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/glab-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/gh-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/opentofu-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/sops-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/age-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/gcx-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/gitleaks-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/tflint-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/opencode-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/manage-packages:0": {
+            "install": "curl, git, jq"
+        }
     }
 }
 ```
@@ -34,16 +67,25 @@ Replace `OWNER` with the GitHub user or organization that publishes this collect
 ```jsonc
 {
     "features": {
-        "ghcr.io/anthropics/devcontainer-features/claude-code:1": {},
-        "ghcr.io/OWNER/devcontainer-features/claude-code-persistence:1": {},
+        "ghcr.io/overlordtm/devcontainer-features/claude-code:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/claude-code-persistence:0": {},
 
-        "ghcr.io/jsburckhardt/devcontainer-features/opencode:1": {},
-        "ghcr.io/OWNER/devcontainer-features/opencode-persistence:1": {}
+        "ghcr.io/overlordtm/devcontainer-features/opencode-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/opencode-persistence:0": {},
+
+        "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/fj-cli-persistence:0": {},
+
+        "ghcr.io/overlordtm/devcontainer-features/gh-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/gh-cli-persistence:0": {},
+
+        "ghcr.io/overlordtm/devcontainer-features/gcx-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/gcx-cli-persistence:0": {}
     }
 }
 ```
 
-Both persistence Features use Docker named volumes, so they also work in GitHub Codespaces where host bind mounts are not available. The volume names are intentionally shared between containers on the same Docker host, which means you sign in once and reuse the login across projects. See each Feature's README for the exact paths and volume names.
+The persistence Features use Docker named volumes, so they also work in GitHub Codespaces where host bind mounts are not available. The volume names are intentionally shared between containers on the same Docker host, which means you sign in once and reuse the login across projects. See each Feature's README for the exact paths and volume names.
 
 ## Repository Structure
 
@@ -65,11 +107,11 @@ The [`.github/workflows/release.yaml`](.github/workflows/release.yaml) workflow 
 Each Feature is published under the collection namespace `<owner>/<repo>`, for example:
 
 ```text
-ghcr.io/OWNER/devcontainer-features/direnv:1
-ghcr.io/OWNER/devcontainer-features/direnv:1.0.0
+ghcr.io/overlordtm/devcontainer-features/direnv:0
+ghcr.io/overlordtm/devcontainer-features/direnv:0.0.1
 ```
 
-The action also publishes the `devcontainer-collection.json` metadata at `ghcr.io/OWNER/devcontainer-features:latest`.
+The action also publishes the `devcontainer-collection.json` metadata at `ghcr.io/overlordtm/devcontainer-features:latest`.
 
 After the first publish, set each GHCR package to **public** in its package settings if you want others (or Codespaces) to consume it anonymously.
 
@@ -83,15 +125,15 @@ devcontainer features package -o ./output ./src
 
 ## Testing
 
-Tests use the `debian:trixie` base image. The persistence scenarios cover both root and non-root remote users (the non-root scenario uses `common-utils` to create the user).
+Autogenerated tests run against all three Microsoft Dev Container base images: `mcr.microsoft.com/devcontainers/base:debian`, `mcr.microsoft.com/devcontainers/base:ubuntu`, and `mcr.microsoft.com/devcontainers/base:alpine`. These are the rolling "latest" tags for each distribution. Scenario tests may use other base images, for example `manage-packages` tests apt and apk on Debian and Alpine. The persistence scenarios cover both root and non-root remote users (the non-root scenario uses `common-utils` to create the user).
 
 Install the Dev Container CLI, then run a Feature's tests:
 
 ```bash
 npm install -g @devcontainers/cli
 
-devcontainer features test -f direnv -i debian:trixie --project-folder .
-devcontainer features test -f claude-code-persistence -i debian:trixie --project-folder .
+devcontainer features test -f direnv -i mcr.microsoft.com/devcontainers/base:debian --project-folder .
+devcontainer features test -f claude-code-persistence -i mcr.microsoft.com/devcontainers/base:debian --project-folder .
 ```
 
 Omit `--skip-scenarios` to run the scenarios in `scenarios.json` as well. The GitHub Actions test workflow runs both the autogenerated tests and the scenario tests.

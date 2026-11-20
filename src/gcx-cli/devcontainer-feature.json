@@ -1,0 +1,46 @@
+{
+    "id": "gcx-cli",
+    "version": "0.0.3",
+    "name": "Grafana CLI (gcx)",
+    "description": "Installs the Grafana CLI (gcx) from official GitHub releases.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/gcx-cli",
+    "keywords": [
+        "grafana",
+        "gcx",
+        "observability",
+        "cli"
+    ],
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "1.8.0",
+                "latest"
+            ],
+            "default": "1.8.0",
+            "description": "Version of gcx to install."
+        },
+        "hash": {
+            "type": "string",
+            "proposals": [
+                "auto",
+                "disabled"
+            ],
+            "default": "auto",
+            "description": "SHA-256/SHA-512 checksum for the downloaded artifact. Use 'auto' to look it up in the built-in version map, or 'disabled' to skip verification."
+        },
+        "keychain": {
+            "type": "boolean",
+            "default": false,
+            "description": "Allow gcx to use the OS keychain. When false, GCX_KEYCHAIN=off is exported (keychains are usually unavailable in containers)."
+        },
+        "telemetry": {
+            "type": "boolean",
+            "default": false,
+            "description": "Allow gcx to send telemetry. When false, GCX_TELEMETRY=disabled is exported."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

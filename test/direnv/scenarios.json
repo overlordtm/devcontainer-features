@@ -4,7 +4,8 @@
         "features": {
             "direnv": {
                 "version": "2.38.2",
-                "configureShells": false
+                "configureShells": false,
+                "hash": "disabled"
             }
         }
     }

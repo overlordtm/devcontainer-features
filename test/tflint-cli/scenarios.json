@@ -1,0 +1,11 @@
+{
+    "pinned": {
+        "image": "debian:trixie",
+        "features": {
+            "tflint-cli": {
+                "version": "0.66.0",
+                "hash": "disabled"
+            }
+        }
+    }
+}

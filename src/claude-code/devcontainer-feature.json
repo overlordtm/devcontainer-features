@@ -1,0 +1,47 @@
+{
+    "id": "claude-code",
+    "version": "0.0.3",
+    "name": "Claude Code CLI",
+    "description": "Installs the Claude Code CLI from Anthropic's official native releases.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/claude-code",
+    "keywords": [
+        "claude",
+        "claude-code",
+        "ai",
+        "cli"
+    ],
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "2.1.329",
+                "latest",
+                "stable"
+            ],
+            "default": "2.1.329",
+            "description": "Claude Code version to install: latest, stable, or an exact version such as 2.1.329."
+        },
+        "hash": {
+            "type": "string",
+            "proposals": [
+                "auto",
+                "disabled"
+            ],
+            "default": "auto",
+            "description": "SHA-256/SHA-512 checksum for the installed claude binary (after decompression). Use 'auto' to look it up in the built-in version map, or 'disabled' to skip verification."
+        }
+    },
+    "containerEnv": {
+        "DISABLE_AUTOUPDATER": "1"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "anthropic.claude-code"
+            ]
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

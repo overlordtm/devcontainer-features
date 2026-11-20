@@ -1,8 +1,9 @@
 {
     "id": "opencode-persistence",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "name": "OpenCode Persistence",
     "description": "Persists OpenCode config, authentication, and session data across container rebuilds using a Docker volume.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/opencode-persistence",
     "keywords": [
         "opencode",
         "ai",
@@ -20,6 +21,7 @@
         "opencode-persistence": "/usr/local/share/opencode-persistence/oncreate.sh"
     },
     "installsAfter": [
+        "ghcr.io/overlordtm/devcontainer-features/opencode-cli",
         "ghcr.io/jsburckhardt/devcontainer-features/opencode",
         "ghcr.io/devcontainers-extra/features/opencode",
         "ghcr.io/temeteke/devcontainer-features/opencode",

@@ -1,0 +1,11 @@
+{
+    "pinned": {
+        "image": "debian:trixie",
+        "features": {
+            "age-cli": {
+                "version": "1.3.2",
+                "hash": "disabled"
+            }
+        }
+    }
+}

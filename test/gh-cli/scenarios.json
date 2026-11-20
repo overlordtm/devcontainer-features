@@ -1,0 +1,11 @@
+{
+    "pinned": {
+        "image": "debian:trixie",
+        "features": {
+            "gh-cli": {
+                "version": "2.105.0",
+                "hash": "disabled"
+            }
+        }
+    }
+}

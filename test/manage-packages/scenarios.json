@@ -1,0 +1,20 @@
+{
+    "apt": {
+        "image": "debian:trixie",
+        "features": {
+            "manage-packages": {
+                "install": "tree, unzip, gawk",
+                "remove": "mawk"
+            }
+        }
+    },
+    "apk": {
+        "image": "alpine:3.22",
+        "features": {
+            "manage-packages": {
+                "install": "tree, unzip, bash",
+                "remove": "musl-utils"
+            }
+        }
+    }
+}

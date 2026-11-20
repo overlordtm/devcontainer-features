@@ -1,0 +1,39 @@
+{
+  "features": {
+    "ghcr.io/overlordtm/devcontainer-features/claude-code-persistence:0": {
+      "version": "0.0.1",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/claude-code-persistence@sha256:081a1f21a45ca9d37483136bc9c4c9e46653f842e1f78f6295b6493019a581dc",
+      "integrity": "sha256:081a1f21a45ca9d37483136bc9c4c9e46653f842e1f78f6295b6493019a581dc"
+    },
+    "ghcr.io/overlordtm/devcontainer-features/claude-code:0": {
+      "version": "0.0.2",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/claude-code@sha256:1b63d3fc9103000d36cce28118b03c02cf43fb1821262a93c412bb88ae498512",
+      "integrity": "sha256:1b63d3fc9103000d36cce28118b03c02cf43fb1821262a93c412bb88ae498512"
+    },
+    "ghcr.io/overlordtm/devcontainer-features/direnv:0": {
+      "version": "0.0.2",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/direnv@sha256:fe933f8a58a4d1940fb78d4e2aa7e561a386ddadc7b1688a6be2bda89c1a826e",
+      "integrity": "sha256:fe933f8a58a4d1940fb78d4e2aa7e561a386ddadc7b1688a6be2bda89c1a826e"
+    },
+    "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {
+      "version": "0.0.2",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/fj-cli@sha256:2b0e58b3ec25fe3e936d86a6595472c870fea6e66a2cbc8c095ae2ac3cb4a77c",
+      "integrity": "sha256:2b0e58b3ec25fe3e936d86a6595472c870fea6e66a2cbc8c095ae2ac3cb4a77c"
+    },
+    "ghcr.io/overlordtm/devcontainer-features/glab-cli:0": {
+      "version": "0.0.2",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/glab-cli@sha256:18eee929c8bd0d46110171687cbd882b615b6d8be0efce02d3af91ab4b1f830f",
+      "integrity": "sha256:18eee929c8bd0d46110171687cbd882b615b6d8be0efce02d3af91ab4b1f830f"
+    },
+    "ghcr.io/overlordtm/devcontainer-features/opencode-cli:0": {
+      "version": "0.0.2",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/opencode-cli@sha256:52d38971af4e874b2c9910316abe7c62059ae279224b8515b59a1c86f7422cd7",
+      "integrity": "sha256:52d38971af4e874b2c9910316abe7c62059ae279224b8515b59a1c86f7422cd7"
+    },
+    "ghcr.io/overlordtm/devcontainer-features/opencode-persistence:0": {
+      "version": "0.0.1",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/opencode-persistence@sha256:d53f90ba22ad76df963b21c402eb26527f24b9731c4c3cb206f21d658fe60a5f",
+      "integrity": "sha256:d53f90ba22ad76df963b21c402eb26527f24b9731c4c3cb206f21d658fe60a5f"
+    }
+  }
+}
