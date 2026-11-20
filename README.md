@@ -13,8 +13,9 @@ A collection of [Dev Container Features](https://containers.dev/implementors/fea
 | [`direnv`](src/direnv) | Installs direnv and configures bash, zsh, and fish hooks. |
 | [`glab-cli`](src/glab-cli) | Installs the official GitLab CLI (`glab`). |
 | [`fj-cli`](src/fj-cli) | Installs `fj`, the Forgejo/Gitea CLI. |
+| [`fj-cli-persistence`](src/fj-cli-persistence) | Persists `fj` logins and configuration across container rebuilds. |
 
-The `*-persistence` Features are companion Features: they do not install the agent itself. Pair them with an installation Feature or install the CLI through your image/Dockerfile.
+The `*-persistence` Features are companion Features: they do not install the tool itself. Pair them with an installation Feature or install the CLI through your image/Dockerfile.
 
 ## Download verification
 
@@ -46,12 +47,15 @@ Features are published under the `overlordtm/devcontainer-features` namespace.
         "ghcr.io/overlordtm/devcontainer-features/claude-code-persistence:0": {},
 
         "ghcr.io/overlordtm/devcontainer-features/opencode-cli:0": {},
-        "ghcr.io/overlordtm/devcontainer-features/opencode-persistence:0": {}
+        "ghcr.io/overlordtm/devcontainer-features/opencode-persistence:0": {},
+
+        "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/fj-cli-persistence:0": {}
     }
 }
 ```
 
-Both persistence Features use Docker named volumes, so they also work in GitHub Codespaces where host bind mounts are not available. The volume names are intentionally shared between containers on the same Docker host, which means you sign in once and reuse the login across projects. See each Feature's README for the exact paths and volume names.
+The persistence Features use Docker named volumes, so they also work in GitHub Codespaces where host bind mounts are not available. The volume names are intentionally shared between containers on the same Docker host, which means you sign in once and reuse the login across projects. See each Feature's README for the exact paths and volume names.
 
 ## Repository Structure
 

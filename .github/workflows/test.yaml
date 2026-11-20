@@ -31,6 +31,8 @@ jobs:
             baseImage: debian:trixie
           - feature: fj-cli
             baseImage: debian:trixie
+          - feature: fj-cli-persistence
+            baseImage: debian:trixie
     steps:
       - uses: actions/checkout@v4
 
@@ -62,6 +64,7 @@ jobs:
           - direnv
           - glab-cli
           - fj-cli
+          - fj-cli-persistence
     steps:
       - uses: actions/checkout@v4
 

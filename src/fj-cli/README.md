@@ -57,7 +57,7 @@ The file uses the same format as `/etc/fj/client_ids`: one `<host> <uuid>` mappi
 
 - Official `fj` binaries are published for Linux `x86_64` and `aarch64` and require a glibc-based distribution with OpenSSL 3 (for example Debian 12+ or Ubuntu 22.04+).
 - On musl distributions such as Alpine, or when the prebuilt binary cannot run, the Feature falls back to `cargo install forgejo-cli --locked` if Cargo is available. Otherwise it fails with an explanation.
-- `fj` stores its configuration under the user's XDG config directory. This Feature does not persist it.
+- `fj` stores its configuration under the user's XDG directories, including `~/.local/share/forgejo-cli/keys.json` with your logins. This Feature does not persist it; pair it with [`fj-cli-persistence`](../fj-cli-persistence) to keep logins across rebuilds.
 
 ## Opening URLs
 
