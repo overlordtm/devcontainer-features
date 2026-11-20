@@ -1,0 +1,34 @@
+{
+    "id": "omz-plugins",
+    "version": "0.0.1",
+    "name": "Oh My Zsh Plugins",
+    "description": "Adds, removes, or replaces the plugins array in the remote user's .zshrc for Oh My Zsh.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/omz-plugins",
+    "keywords": [
+        "oh-my-zsh",
+        "omz",
+        "zsh",
+        "plugins",
+        "shell"
+    ],
+    "options": {
+        "add": {
+            "type": "string",
+            "default": "",
+            "description": "Comma or space separated list of plugins to add, for example \"git, zsh-autosuggestions\". Existing plugins are preserved."
+        },
+        "remove": {
+            "type": "string",
+            "default": "",
+            "description": "Comma or space separated list of plugins to remove, for example \"docker, kubectl\"."
+        },
+        "set": {
+            "type": "string",
+            "default": "",
+            "description": "Comma or space separated list that replaces the entire plugins array. Cannot be combined with 'add' or 'remove'."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

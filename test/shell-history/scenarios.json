@@ -1,0 +1,41 @@
+{
+    "root_user": {
+        "image": "debian:trixie",
+        "features": {
+            "shell-history": {}
+        },
+        "remoteUser": "root"
+    },
+    "non_root": {
+        "image": "debian:trixie",
+        "features": {
+            "ghcr.io/devcontainers/features/common-utils:2": {
+                "username": "vscode",
+                "upgradePackages": false,
+                "installZsh": true,
+                "installOhMyZsh": false,
+                "installOhMyZshConfig": false
+            },
+            "shell-history": {}
+        },
+        "remoteUser": "vscode"
+    },
+    "fish": {
+        "build": {
+            "dockerfile": "Dockerfile"
+        },
+        "features": {
+            "shell-history": {}
+        },
+        "remoteUser": "root"
+    },
+    "custom_size": {
+        "image": "debian:trixie",
+        "features": {
+            "shell-history": {
+                "historySize": "25000"
+            }
+        },
+        "remoteUser": "root"
+    }
+}

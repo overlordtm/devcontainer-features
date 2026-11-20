@@ -28,6 +28,8 @@ jobs:
           - opencode-persistence
           - opencode-cli
           - direnv
+          - shell-history
+          - omz-plugins
           - glab-cli
           - gh-cli
           - gh-cli-persistence
@@ -75,6 +77,8 @@ jobs:
           - opencode-persistence
           - opencode-cli
           - direnv
+          - shell-history
+          - omz-plugins
           - glab-cli
           - gh-cli
           - gh-cli-persistence

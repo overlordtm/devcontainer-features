@@ -1,0 +1,41 @@
+{
+    "id": "shell-history",
+    "version": "0.0.1",
+    "name": "Shell History",
+    "description": "Persists bash, zsh, and fish shell history across container rebuilds using a Docker volume.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/shell-history",
+    "keywords": [
+        "shell",
+        "history",
+        "bash",
+        "zsh",
+        "fish",
+        "persistence",
+        "volume"
+    ],
+    "options": {
+        "historySize": {
+            "type": "string",
+            "proposals": [
+                "10000",
+                "50000",
+                "100000"
+            ],
+            "default": "10000",
+            "description": "Number of commands to keep in bash and zsh history (HISTSIZE/SAVEHIST). Fish manages the size of its own history file."
+        }
+    },
+    "mounts": [
+        {
+            "source": "${devcontainerId}-shell-history",
+            "target": "/dc/shell-history",
+            "type": "volume"
+        }
+    ],
+    "onCreateCommand": {
+        "shell-history": "/usr/local/share/shell-history/oncreate.sh"
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

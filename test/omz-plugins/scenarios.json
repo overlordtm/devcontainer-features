@@ -1,0 +1,55 @@
+{
+    "add": {
+        "build": {
+            "dockerfile": "Dockerfile"
+        },
+        "features": {
+            "omz-plugins": {
+                "add": "zsh-autosuggestions, docker"
+            }
+        },
+        "remoteUser": "root"
+    },
+    "remove": {
+        "build": {
+            "dockerfile": "Dockerfile"
+        },
+        "features": {
+            "omz-plugins": {
+                "remove": "docker, kubectl, missing-plugin"
+            }
+        },
+        "remoteUser": "root"
+    },
+    "set": {
+        "build": {
+            "dockerfile": "Dockerfile"
+        },
+        "features": {
+            "omz-plugins": {
+                "set": "zsh-autosuggestions git"
+            }
+        },
+        "remoteUser": "root"
+    },
+    "multiline": {
+        "build": {
+            "dockerfile": "Dockerfile"
+        },
+        "features": {
+            "omz-plugins": {
+                "add": "kubectl"
+            }
+        },
+        "remoteUser": "root"
+    },
+    "non_root": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "omz-plugins": {
+                "add": "zsh-autosuggestions"
+            }
+        },
+        "remoteUser": "vscode"
+    }
+}
