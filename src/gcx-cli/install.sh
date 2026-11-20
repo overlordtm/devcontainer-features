@@ -3,6 +3,8 @@ set -euo pipefail
 
 VERSION="${VERSION:-1.8.0}"
 HASH_INPUT="${HASH:-auto}"
+KEYCHAIN="${KEYCHAIN:-false}"
+TELEMETRY="${TELEMETRY:-false}"
 
 if [ "$(id -u)" -ne 0 ]; then
     echo "Script must be run as root. Use sudo, su, or add \"USER root\" to your Dockerfile before running this script." >&2
@@ -230,3 +232,48 @@ install -m 0755 "${TMP_DIR}/gcx" /usr/local/bin/gcx 2>/dev/null \
     }
 
 /usr/local/bin/gcx --version
+
+# Feature metadata cannot derive containerEnv from options, so export the
+# option-driven variables where login shells and PAM sessions pick them up.
+configure_environment() {
+    profile_file="/etc/profile.d/gcx.sh"
+    environment_file="/etc/environment"
+    env_lines=""
+
+    if [ "${KEYCHAIN}" != "true" ]; then
+        env_lines="${env_lines}GCX_KEYCHAIN=off"$'\n'
+    fi
+    if [ "${TELEMETRY}" != "true" ]; then
+        env_lines="${env_lines}GCX_TELEMETRY=disabled"$'\n'
+    fi
+
+    # Drop values from a previous install so changed options take effect.
+    if [ -f "${environment_file}" ]; then
+        sed -i '/^GCX_KEYCHAIN=/d; /^GCX_TELEMETRY=/d' "${environment_file}"
+    fi
+
+    if [ -z "${env_lines}" ]; then
+        rm -f "${profile_file}"
+        echo "gcx keychain and telemetry left at their defaults (both options enabled)."
+        return 0
+    fi
+
+    mkdir -p /etc/profile.d
+    {
+        echo "# gcx (added by devcontainer feature)"
+        printf '%s' "${env_lines}" | sed 's/^/export /'
+    } > "${profile_file}"
+    chmod 0644 "${profile_file}"
+
+    # PAM reads /etc/environment for login sessions; values there are plain
+    # KEY=VALUE pairs without a shell `export`.
+    touch "${environment_file}"
+    if [ -s "${environment_file}" ] && [ -n "$(tail -c 1 "${environment_file}")" ]; then
+        printf '\n' >> "${environment_file}"
+    fi
+    printf '%s' "${env_lines}" >> "${environment_file}"
+
+    echo "Exported gcx environment variables to ${profile_file} and ${environment_file}."
+}
+
+configure_environment

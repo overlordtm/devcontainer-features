@@ -37,6 +37,8 @@ jobs:
             baseImage: debian:trixie
           - feature: gcx-cli
             baseImage: debian:trixie
+          - feature: gcx-cli-persistence
+            baseImage: debian:trixie
           - feature: gitleaks-cli
             baseImage: debian:trixie
           - feature: tflint-cli
@@ -44,6 +46,8 @@ jobs:
           - feature: fj-cli
             baseImage: debian:trixie
           - feature: fj-cli-persistence
+            baseImage: debian:trixie
+          - feature: manage-packages
             baseImage: debian:trixie
     steps:
       - uses: actions/checkout@v4
@@ -79,10 +83,12 @@ jobs:
           - sops-cli
           - age-cli
           - gcx-cli
+          - gcx-cli-persistence
           - gitleaks-cli
           - tflint-cli
           - fj-cli
           - fj-cli-persistence
+          - manage-packages
     steps:
       - uses: actions/checkout@v4
 

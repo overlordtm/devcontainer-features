@@ -39,7 +39,7 @@ Feature options cannot create host bind mounts: mounts in `devcontainer-feature.
         "ghcr.io/overlordtm/devcontainer-features/age-cli:0": {}
     },
     "mounts": [
-        "source=${localEnv:HOME}/.config/sops/age/topapp_keys.txt,target=/home/vscode/.config/sops/age/topapp_keys.txt,type=bind,readonly",
+        "source=${localEnv:HOME}/.config/sops/age/personal_keys.txt,target=/home/vscode/.config/sops/age/personal_keys.txt,type=bind,readonly",
         "source=${localEnv:HOME}/.config/sops/age/work_keys.txt,target=/home/vscode/.config/sops/age/work_keys.txt,type=bind,readonly"
     ]
 }
@@ -62,7 +62,7 @@ SOPS reads `~/.config/sops/age/keys.txt` by default. If you mount a key under a 
 ```jsonc
 {
     "remoteEnv": {
-        "SOPS_AGE_KEY_FILE": "/home/vscode/.config/sops/age/topapp_keys.txt"
+        "SOPS_AGE_KEY_FILE": "/home/vscode/.config/sops/age/personal_keys.txt"
     }
 }
 ```

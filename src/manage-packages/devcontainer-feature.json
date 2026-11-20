@@ -1,0 +1,26 @@
+{
+    "id": "manage-packages",
+    "version": "0.0.1",
+    "name": "Manage System Packages",
+    "description": "Installs and removes system packages with the image's default package manager (apt or yum), then cleans the package cache.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/manage-packages",
+    "keywords": [
+        "packages",
+        "apt",
+        "yum",
+        "system",
+        "dependencies"
+    ],
+    "options": {
+        "install": {
+            "type": "string",
+            "default": "",
+            "description": "Comma or space separated list of packages to install, for example \"curl, git\"."
+        },
+        "remove": {
+            "type": "string",
+            "default": "",
+            "description": "Comma or space separated list of packages to remove before installing, for example \"vim, nano\"."
+        }
+    }
+}

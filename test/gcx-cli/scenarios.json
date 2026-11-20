@@ -7,5 +7,16 @@
                 "hash": "disabled"
             }
         }
+    },
+    "envEnabled": {
+        "image": "debian:trixie",
+        "features": {
+            "gcx-cli": {
+                "version": "1.8.0",
+                "hash": "disabled",
+                "keychain": true,
+                "telemetry": true
+            }
+        }
     }
 }

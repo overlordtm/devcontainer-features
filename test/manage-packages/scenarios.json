@@ -1,0 +1,20 @@
+{
+    "apt": {
+        "image": "debian:trixie",
+        "features": {
+            "manage-packages": {
+                "install": "tree, unzip, gawk",
+                "remove": "mawk"
+            }
+        }
+    },
+    "yum": {
+        "image": "almalinux:9",
+        "features": {
+            "manage-packages": {
+                "install": "tree, unzip",
+                "remove": "less"
+            }
+        }
+    }
+}

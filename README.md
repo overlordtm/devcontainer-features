@@ -16,10 +16,12 @@ A collection of [Dev Container Features](https://containers.dev/implementors/fea
 | [`sops-cli`](src/sops-cli) | Installs the SOPS secrets management CLI (`sops`). |
 | [`age-cli`](src/age-cli) | Installs the age encryption CLI (`age` and `age-keygen`). |
 | [`gcx-cli`](src/gcx-cli) | Installs the Grafana CLI (`gcx`). |
+| [`gcx-cli-persistence`](src/gcx-cli-persistence) | Persists `gcx` configuration across container rebuilds. |
 | [`gitleaks-cli`](src/gitleaks-cli) | Installs the Gitleaks secret scanning CLI (`gitleaks`). |
 | [`tflint-cli`](src/tflint-cli) | Installs the TFLint Terraform linter CLI (`tflint`). |
 | [`fj-cli`](src/fj-cli) | Installs `fj`, the Forgejo/Gitea CLI. |
 | [`fj-cli-persistence`](src/fj-cli-persistence) | Persists `fj` logins and configuration across container rebuilds. |
+| [`manage-packages`](src/manage-packages) | Installs and removes system packages with apt or yum, then cleans the package cache. |
 
 The `*-persistence` Features are companion Features: they do not install the tool itself. Pair them with an installation Feature or install the CLI through your image/Dockerfile.
 
@@ -49,7 +51,10 @@ Features are published under the `overlordtm/devcontainer-features` namespace.
         "ghcr.io/overlordtm/devcontainer-features/gitleaks-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/tflint-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {},
-        "ghcr.io/overlordtm/devcontainer-features/opencode-cli:0": {}
+        "ghcr.io/overlordtm/devcontainer-features/opencode-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/manage-packages:0": {
+            "install": "curl, git, jq"
+        }
     }
 }
 ```
@@ -66,7 +71,10 @@ Features are published under the `overlordtm/devcontainer-features` namespace.
         "ghcr.io/overlordtm/devcontainer-features/opencode-persistence:0": {},
 
         "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {},
-        "ghcr.io/overlordtm/devcontainer-features/fj-cli-persistence:0": {}
+        "ghcr.io/overlordtm/devcontainer-features/fj-cli-persistence:0": {},
+
+        "ghcr.io/overlordtm/devcontainer-features/gcx-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/gcx-cli-persistence:0": {}
     }
 }
 ```
