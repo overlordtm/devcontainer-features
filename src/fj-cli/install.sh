@@ -14,6 +14,20 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
+# fj opens URLs through xdg-open/gio (the Rust `open` crate) and ignores
+# $BROWSER. There is no browser in the container, so provide a shim that
+# hands the URL to the browser helper VS Code exposes through $BROWSER.
+install_xdg_open_shim() {
+    install -d -m 0755 /usr/local/bin
+    printf '%s\n' \
+        '#!/bin/sh' \
+        ': "${BROWSER:?BROWSER not set (VS Code sets it in attached terminals)}"' \
+        'exec "$BROWSER" "$@"' > /usr/local/bin/xdg-open
+    chmod 0755 /usr/local/bin/xdg-open
+}
+
+install_xdg_open_shim
+
 # SHA-256 checksums for vetted release artifacts. Keys are "<version>:<platform>"
 # and <platform> matches the platform identifier used in the download URL.
 lookup_checksum() {

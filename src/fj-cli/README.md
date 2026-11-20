@@ -59,6 +59,14 @@ The file uses the same format as `/etc/fj/client_ids`: one `<host> <uuid>` mappi
 - On musl distributions such as Alpine, or when the prebuilt binary cannot run, the Feature falls back to `cargo install forgejo-cli --locked` if Cargo is available. Otherwise it fails with an explanation.
 - `fj` stores its configuration under the user's XDG config directory. This Feature does not persist it.
 
+## Opening URLs
+
+`fj` opens URLs through `xdg-open`/`gio` (the Rust `open` crate) and ignores `$BROWSER`. A container has no browser, so this Feature installs `/usr/local/bin/xdg-open` as a shim that hands the URL to the browser helper VS Code exposes through `$BROWSER`. Browser-opening commands such as `fj auth login` then use the host browser.
+
+The shim is placed in `/usr/local/bin`, which takes precedence over a system `xdg-open` such as the one from `xdg-utils`.
+
+VS Code only sets `$BROWSER` in attached terminals. When you run `fj` some other way, for example through `docker exec`, set `BROWSER` to a command that can open URLs first. Otherwise the shim exits with `BROWSER not set (VS Code sets it in attached terminals)`.
+
 ## Checksum verification
 
 Downloads are checked against the built-in SHA-256 map for known versions. If `latest` resolves to a version that is not in the map, the build fails unless you provide the tarball digest explicitly or opt out. For example:
