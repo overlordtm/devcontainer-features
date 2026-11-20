@@ -1,0 +1,11 @@
+{
+    "pinned": {
+        "image": "debian:trixie",
+        "features": {
+            "sops-cli": {
+                "version": "3.13.3",
+                "hash": "disabled"
+            }
+        }
+    }
+}

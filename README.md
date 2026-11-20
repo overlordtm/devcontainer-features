@@ -12,6 +12,12 @@ A collection of [Dev Container Features](https://containers.dev/implementors/fea
 | [`opencode-persistence`](src/opencode-persistence) | Persists OpenCode config, authentication, and session data across container rebuilds. |
 | [`direnv`](src/direnv) | Installs direnv and configures bash, zsh, and fish hooks. |
 | [`glab-cli`](src/glab-cli) | Installs the official GitLab CLI (`glab`). |
+| [`opentofu-cli`](src/opentofu-cli) | Installs the OpenTofu CLI (`tofu`). |
+| [`sops-cli`](src/sops-cli) | Installs the SOPS secrets management CLI (`sops`). |
+| [`age-cli`](src/age-cli) | Installs the age encryption CLI (`age` and `age-keygen`). |
+| [`gcx-cli`](src/gcx-cli) | Installs the Grafana CLI (`gcx`). |
+| [`gitleaks-cli`](src/gitleaks-cli) | Installs the Gitleaks secret scanning CLI (`gitleaks`). |
+| [`tflint-cli`](src/tflint-cli) | Installs the TFLint Terraform linter CLI (`tflint`). |
 | [`fj-cli`](src/fj-cli) | Installs `fj`, the Forgejo/Gitea CLI. |
 | [`fj-cli-persistence`](src/fj-cli-persistence) | Persists `fj` logins and configuration across container rebuilds. |
 
@@ -32,6 +38,12 @@ Features are published under the `overlordtm/devcontainer-features` namespace.
         "ghcr.io/overlordtm/devcontainer-features/claude-code:0": {},
         "ghcr.io/overlordtm/devcontainer-features/direnv:0": {},
         "ghcr.io/overlordtm/devcontainer-features/glab-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/opentofu-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/sops-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/age-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/gcx-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/gitleaks-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/tflint-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/opencode-cli:0": {}
     }

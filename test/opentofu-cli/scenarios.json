@@ -1,0 +1,11 @@
+{
+    "pinned": {
+        "image": "debian:trixie",
+        "features": {
+            "opentofu-cli": {
+                "version": "1.13.9",
+                "hash": "disabled"
+            }
+        }
+    }
+}

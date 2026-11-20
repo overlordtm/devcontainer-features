@@ -1,0 +1,37 @@
+{
+    "id": "tflint-cli",
+    "version": "0.0.1",
+    "name": "TFLint CLI (tflint)",
+    "description": "Installs the TFLint Terraform linter CLI (tflint) from official GitHub releases.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/tflint-cli",
+    "keywords": [
+        "tflint",
+        "terraform",
+        "lint",
+        "infrastructure-as-code",
+        "cli"
+    ],
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "0.66.0"
+            ],
+            "default": "latest",
+            "description": "Version of TFLint to install."
+        },
+        "hash": {
+            "type": "string",
+            "proposals": [
+                "auto",
+                "disabled"
+            ],
+            "default": "auto",
+            "description": "SHA-256/SHA-512 checksum for the downloaded artifact. Use 'auto' to look it up in the built-in version map, or 'disabled' to skip verification."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

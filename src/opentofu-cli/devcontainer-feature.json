@@ -1,0 +1,37 @@
+{
+    "id": "opentofu-cli",
+    "version": "0.0.1",
+    "name": "OpenTofu CLI (tofu)",
+    "description": "Installs the OpenTofu CLI (tofu) from official GitHub releases.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/opentofu-cli",
+    "keywords": [
+        "opentofu",
+        "tofu",
+        "terraform",
+        "infrastructure-as-code",
+        "cli"
+    ],
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "1.13.9"
+            ],
+            "default": "latest",
+            "description": "Version of OpenTofu to install."
+        },
+        "hash": {
+            "type": "string",
+            "proposals": [
+                "auto",
+                "disabled"
+            ],
+            "default": "auto",
+            "description": "SHA-256/SHA-512 checksum for the downloaded artifact. Use 'auto' to look it up in the built-in version map, or 'disabled' to skip verification."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

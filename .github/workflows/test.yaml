@@ -29,6 +29,18 @@ jobs:
             baseImage: debian:trixie
           - feature: glab-cli
             baseImage: debian:trixie
+          - feature: opentofu-cli
+            baseImage: debian:trixie
+          - feature: sops-cli
+            baseImage: debian:trixie
+          - feature: age-cli
+            baseImage: debian:trixie
+          - feature: gcx-cli
+            baseImage: debian:trixie
+          - feature: gitleaks-cli
+            baseImage: debian:trixie
+          - feature: tflint-cli
+            baseImage: debian:trixie
           - feature: fj-cli
             baseImage: debian:trixie
           - feature: fj-cli-persistence
@@ -63,6 +75,12 @@ jobs:
           - opencode-cli
           - direnv
           - glab-cli
+          - opentofu-cli
+          - sops-cli
+          - age-cli
+          - gcx-cli
+          - gitleaks-cli
+          - tflint-cli
           - fj-cli
           - fj-cli-persistence
     steps:

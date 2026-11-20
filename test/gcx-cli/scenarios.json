@@ -1,0 +1,11 @@
+{
+    "pinned": {
+        "image": "debian:trixie",
+        "features": {
+            "gcx-cli": {
+                "version": "1.8.0",
+                "hash": "disabled"
+            }
+        }
+    }
+}
