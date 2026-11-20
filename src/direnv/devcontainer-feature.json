@@ -1,6 +1,6 @@
 {
     "id": "direnv",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "direnv",
     "description": "Installs direnv and configures shell hooks for bash, zsh, and fish.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/direnv",
@@ -24,6 +24,15 @@
             "type": "boolean",
             "default": true,
             "description": "Add direnv hooks to the system-wide bash, zsh, and fish startup files."
+        },
+        "hash": {
+            "type": "string",
+            "proposals": [
+                "auto",
+                "disabled"
+            ],
+            "default": "auto",
+            "description": "SHA-256/SHA-512 checksum for the downloaded artifact. Use 'auto' to look it up in the built-in version map, or 'disabled' to skip verification."
         }
     },
     "installsAfter": [

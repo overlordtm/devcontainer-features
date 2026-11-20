@@ -1,6 +1,6 @@
 {
     "id": "opencode-cli",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "OpenCode CLI",
     "description": "Installs the OpenCode 2 CLI from the official npm platform packages.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/opencode-cli",
@@ -18,6 +18,15 @@
             ],
             "default": "latest",
             "description": "Version of OpenCode 2 to install."
+        },
+        "hash": {
+            "type": "string",
+            "proposals": [
+                "auto",
+                "disabled"
+            ],
+            "default": "auto",
+            "description": "SHA-256/SHA-512 checksum for the downloaded artifact. Use 'auto' to look it up in the built-in version map, or 'disabled' to skip verification."
         }
     },
     "installsAfter": [

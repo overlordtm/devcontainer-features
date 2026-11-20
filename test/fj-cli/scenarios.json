@@ -3,7 +3,8 @@
         "image": "debian:trixie",
         "features": {
             "fj-cli": {
-                "version": "0.7.0"
+                "version": "0.7.0",
+                "hash": "disabled"
             }
         }
     }

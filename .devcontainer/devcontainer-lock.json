@@ -5,6 +5,11 @@
       "resolved": "ghcr.io/overlordtm/devcontainer-features/claude-code-persistence@sha256:081a1f21a45ca9d37483136bc9c4c9e46653f842e1f78f6295b6493019a581dc",
       "integrity": "sha256:081a1f21a45ca9d37483136bc9c4c9e46653f842e1f78f6295b6493019a581dc"
     },
+    "ghcr.io/overlordtm/devcontainer-features/claude-code:0": {
+      "version": "0.0.1",
+      "resolved": "ghcr.io/overlordtm/devcontainer-features/claude-code@sha256:f18848a1a930933c995b82efabb839d73f1b5c4307a75f83d15e8516bcfe9f19",
+      "integrity": "sha256:f18848a1a930933c995b82efabb839d73f1b5c4307a75f83d15e8516bcfe9f19"
+    },
     "ghcr.io/overlordtm/devcontainer-features/direnv:0": {
       "version": "0.0.1",
       "resolved": "ghcr.io/overlordtm/devcontainer-features/direnv@sha256:cb814ede457fc3b20a907087b9f9e69ad00e7792a712a14481bd0b49770fcc86",

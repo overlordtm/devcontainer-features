@@ -7,6 +7,7 @@ Installs the [Claude Code](https://code.claude.com/docs) CLI from Anthropic's of
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
 | `version` | string | `latest` | `latest`, `stable`, or an exact version such as `2.1.329`. |
+| `hash` | string | `auto` | SHA-256/SHA-512 checksum, `auto` to use the built-in checksum map, or `disabled` to skip verification. |
 
 ## Usage
 
@@ -20,7 +21,26 @@ Installs the [Claude Code](https://code.claude.com/docs) CLI from Anthropic's of
 }
 ```
 
-The native binary is installed system-wide at `/usr/local/bin/claude`. Downloads are verified against the checksum in Anthropic's release manifest.
+The native binary is installed system-wide at `/usr/local/bin/claude`.
+
+## Checksum verification
+
+Downloads are checked against the built-in SHA-256 map for known versions. The hash is computed over the decompressed `claude` binary.
+
+If `latest` or `stable` resolves to a version that is not in the map, the build fails unless you provide a digest explicitly or opt out. For example:
+
+```jsonc
+{
+    "features": {
+        "ghcr.io/overlordtm/devcontainer-features/claude-code:0": {
+            "version": "2.1.329",
+            "hash": "<sha256-or-sha512-digest>"
+        }
+    }
+}
+```
+
+Set `"hash": "disabled"` to skip verification. Only do this if you have another way to trust the download.
 
 ## Notes
 

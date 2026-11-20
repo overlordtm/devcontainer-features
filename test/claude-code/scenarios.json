@@ -3,7 +3,8 @@
         "image": "debian:trixie",
         "features": {
             "claude-code": {
-                "version": "2.1.329"
+                "version": "2.1.329",
+                "hash": "disabled"
             }
         }
     }

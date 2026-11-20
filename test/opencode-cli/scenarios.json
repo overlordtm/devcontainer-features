@@ -3,7 +3,8 @@
         "image": "debian:trixie",
         "features": {
             "opencode-cli": {
-                "version": "2.3.2"
+                "version": "2.3.2",
+                "hash": "disabled"
             }
         }
     }

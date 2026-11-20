@@ -1,6 +1,6 @@
 {
     "id": "claude-code",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "Claude Code CLI",
     "description": "Installs the Claude Code CLI from Anthropic's official native releases.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/claude-code",
@@ -20,6 +20,15 @@
             ],
             "default": "latest",
             "description": "Claude Code version to install: latest, stable, or an exact version such as 2.1.329."
+        },
+        "hash": {
+            "type": "string",
+            "proposals": [
+                "auto",
+                "disabled"
+            ],
+            "default": "auto",
+            "description": "SHA-256/SHA-512 checksum for the installed claude binary (after decompression). Use 'auto' to look it up in the built-in version map, or 'disabled' to skip verification."
         }
     },
     "containerEnv": {

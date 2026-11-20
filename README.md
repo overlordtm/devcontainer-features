@@ -16,6 +16,10 @@ A collection of [Dev Container Features](https://containers.dev/implementors/fea
 
 The `*-persistence` Features are companion Features: they do not install the agent itself. Pair them with an installation Feature or install the CLI through your image/Dockerfile.
 
+## Download verification
+
+Every CLI-installing Feature verifies downloaded artifacts against a built-in SHA-256 map of vetted versions. If you install a version that is not in the map, pass your own digest through the `hash` option, or set `"hash": "disabled"` to skip verification. A newly published upstream `latest` release is therefore rejected until the Feature's checksum map is updated (or you provide a digest). See the README of each Feature for details.
+
 ## Usage
 
 Features are published under the `overlordtm/devcontainer-features` namespace.
