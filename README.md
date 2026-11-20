@@ -12,6 +12,8 @@ A collection of [Dev Container Features](https://containers.dev/implementors/fea
 | [`opencode-persistence`](src/opencode-persistence) | Persists OpenCode config, authentication, and session data across container rebuilds. |
 | [`direnv`](src/direnv) | Installs direnv and configures bash, zsh, and fish hooks. |
 | [`glab-cli`](src/glab-cli) | Installs the official GitLab CLI (`glab`). |
+| [`gh-cli`](src/gh-cli) | Installs the GitHub CLI (`gh`). |
+| [`gh-cli-persistence`](src/gh-cli-persistence) | Persists `gh` authentication, configuration, extensions, and state across container rebuilds. |
 | [`opentofu-cli`](src/opentofu-cli) | Installs the OpenTofu CLI (`tofu`). |
 | [`sops-cli`](src/sops-cli) | Installs the SOPS secrets management CLI (`sops`). |
 | [`age-cli`](src/age-cli) | Installs the age encryption CLI (`age` and `age-keygen`). |
@@ -44,6 +46,7 @@ Features are published under the `overlordtm/devcontainer-features` namespace.
         "ghcr.io/overlordtm/devcontainer-features/claude-code:0": {},
         "ghcr.io/overlordtm/devcontainer-features/direnv:0": {},
         "ghcr.io/overlordtm/devcontainer-features/glab-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/gh-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/opentofu-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/sops-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/age-cli:0": {},
@@ -72,6 +75,9 @@ Features are published under the `overlordtm/devcontainer-features` namespace.
 
         "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/fj-cli-persistence:0": {},
+
+        "ghcr.io/overlordtm/devcontainer-features/gh-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/gh-cli-persistence:0": {},
 
         "ghcr.io/overlordtm/devcontainer-features/gcx-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/gcx-cli-persistence:0": {}

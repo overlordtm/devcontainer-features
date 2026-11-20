@@ -29,6 +29,10 @@ jobs:
             baseImage: debian:trixie
           - feature: glab-cli
             baseImage: debian:trixie
+          - feature: gh-cli
+            baseImage: debian:trixie
+          - feature: gh-cli-persistence
+            baseImage: debian:trixie
           - feature: opentofu-cli
             baseImage: debian:trixie
           - feature: sops-cli
@@ -79,6 +83,8 @@ jobs:
           - opencode-cli
           - direnv
           - glab-cli
+          - gh-cli
+          - gh-cli-persistence
           - opentofu-cli
           - sops-cli
           - age-cli
