@@ -1,6 +1,6 @@
 {
     "id": "gcloud-cli",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "Google Cloud CLI (gcloud)",
     "description": "Installs the Google Cloud CLI (gcloud, gsutil, and bq) from official Google Cloud SDK releases.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/gcloud-cli",
@@ -31,6 +31,9 @@
             "default": "auto",
             "description": "SHA-256/SHA-512 checksum for the downloaded artifact. Use 'auto' to look it up in the built-in version map, or 'disabled' to skip verification."
         }
+    },
+    "containerEnv": {
+        "CLOUDSDK_HOME": "/usr/local/lib/google-cloud-sdk"
     },
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils"

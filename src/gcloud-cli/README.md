@@ -25,6 +25,7 @@ Installs the [Google Cloud CLI](https://cloud.google.com/sdk/docs) (`gcloud`, `g
 
 - Supports `linux/amd64` (`x86_64`), `linux/arm64` (Google's `arm` archive), and `linux/386` (`x86`).
 - The SDK is installed in `/usr/local/lib/google-cloud-sdk`, with `gcloud`, `gsutil`, and `bq` linked into `/usr/local/bin`.
+- The SDK locates itself from the path of the executable (following symlinks), so it works from any install directory. `CLOUDSDK_HOME` is exported as `/usr/local/lib/google-cloud-sdk` for third-party tooling such as the oh-my-zsh `gcloud` plugin; the CLI itself does not need it.
 - The Linux builds are linked against glibc, so musl-based distributions such as Alpine Linux are not supported.
 - The SDK directory is root-owned. Running `gcloud components install` as a non-root user requires write access to that directory, or install additional components at image build time.
 - The CLI stores its configuration and credentials in `~/.config/gcloud`; this Feature does not persist that directory.

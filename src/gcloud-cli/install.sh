@@ -210,6 +210,10 @@ if [ ! -x "${TMP_DIR}/google-cloud-sdk/bin/gcloud" ]; then
     exit 1
 fi
 
+# /usr/local/lib is the FHS location for architecture-dependent files: the SDK
+# ships binaries and a bundled Python interpreter. gcloud locates itself from
+# its executable path (following symlinks), so this directory is only a
+# convention, not a requirement.
 SDK_DIR="/usr/local/lib/google-cloud-sdk"
 rm -rf "${SDK_DIR}"
 mkdir -p /usr/local/lib
