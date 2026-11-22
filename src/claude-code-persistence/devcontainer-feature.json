@@ -1,6 +1,6 @@
 {
     "id": "claude-code-persistence",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "name": "Claude Code Persistence",
     "description": "Persists Claude Code account, settings, and session history across container rebuilds using a Docker volume.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/claude-code-persistence",
@@ -13,7 +13,7 @@
     ],
     "mounts": [
         {
-            "source": "${devcontainerId}-claude-code-config",
+            "source": "${localWorkspaceFolderBasename}-${devcontainerId}-claude-code-config",
             "target": "/dc/claude",
             "type": "volume"
         }

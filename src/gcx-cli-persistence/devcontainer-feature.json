@@ -1,6 +1,6 @@
 {
     "id": "gcx-cli-persistence",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "name": "Grafana CLI Persistence",
     "description": "Persists gcx (Grafana CLI) configuration across container rebuilds using a Docker volume.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/gcx-cli-persistence",
@@ -12,7 +12,7 @@
     ],
     "mounts": [
         {
-            "source": "${devcontainerId}-gcx-cli-state",
+            "source": "${localWorkspaceFolderBasename}-${devcontainerId}-gcx-cli-state",
             "target": "/dc/gcx",
             "type": "volume"
         }

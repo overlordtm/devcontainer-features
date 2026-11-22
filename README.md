@@ -107,7 +107,7 @@ Features are published under the `overlordtm/devcontainer-features` namespace.
 }
 ```
 
-The persistence Features use Docker named volumes, so they also work in GitHub Codespaces where host bind mounts are not available. Each volume is scoped to the dev container with `${devcontainerId}`, so state survives rebuilds without being shared with other containers on the same Docker host. See each Feature's README for the exact paths and volume names.
+The persistence Features use Docker named volumes, so they also work in GitHub Codespaces where host bind mounts are not available. Each volume name is prefixed with the workspace folder name so it is easy to spot in `docker volume ls`, and scoped to the dev container with `${devcontainerId}` so state survives rebuilds without being shared with other containers on the same Docker host. See each Feature's README for the exact paths and volume names.
 
 ## Repository Structure
 

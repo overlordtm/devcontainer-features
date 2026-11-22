@@ -14,7 +14,7 @@ Preserves shell history across container rebuilds for **bash**, **zsh**, and **f
 
 ## What it does
 
-- Creates a Docker named volume named `${devcontainerId}-shell-history` and mounts it at `/dc/shell-history`.
+- Creates a Docker named volume named `${localWorkspaceFolderBasename}-${devcontainerId}-shell-history` and mounts it at `/dc/shell-history`.
 - Writes shell configuration to `~/.config/shell-history/`:
   - `bash.sh` sets `HISTFILE=/dc/shell-history/.bash_history`, `HISTSIZE`, `HISTFILESIZE`, and appends every command with `history -a` so history survives an abrupt container stop.
   - `zsh.sh` sets `HISTFILE=/dc/shell-history/.zsh_history`, `HISTSIZE`, `SAVEHIST`, and enables `INC_APPEND_HISTORY`.
@@ -32,7 +32,7 @@ The shell configuration is written at image build time for the Feature's remote 
 
 ## Notes
 
-- The volume is scoped to the dev container ID, so each project keeps its own history while sharing it across rebuilds. To wipe it, remove the volume with `docker volume rm <devcontainerId>-shell-history`.
+- The volume name starts with the workspace folder name so it is easy to spot in `docker volume ls`, and includes the dev container ID to keep it unique. This means each project keeps its own history while sharing it across rebuilds, even when two projects have the same folder name. To wipe it, remove the volume with `docker volume rm <workspace-folder>-<devcontainerId>-shell-history`.
 - This Feature intentionally scopes history per dev container. If you need one history shared by every project on a Docker host, configure `HISTFILE` and the fish history link yourself instead of using this Feature.
 - Interactive login shells that do not read `~/.bashrc` will not pick up the bash configuration. Most Dev Container base images source `~/.bashrc` from `~/.profile`.
 - If a dotfiles tool replaces `~/.bashrc`, `~/.zshrc`, or fish's `config.fish` after container creation, re-add the `~/.config/shell-history/` source lines.

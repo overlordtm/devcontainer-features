@@ -1,6 +1,6 @@
 {
     "id": "aws-cli-persistence",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "name": "AWS CLI Persistence",
     "description": "Persists aws (AWS CLI v2) configuration, credentials, and SSO sessions across container rebuilds using a Docker volume.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/aws-cli-persistence",
@@ -12,7 +12,7 @@
     ],
     "mounts": [
         {
-            "source": "${devcontainerId}-aws-cli-state",
+            "source": "${localWorkspaceFolderBasename}-${devcontainerId}-aws-cli-state",
             "target": "/dc/aws",
             "type": "volume"
         }

@@ -15,7 +15,7 @@ This is a **companion Feature**: it does not install the `gcx` CLI. Use it along
 
 ## What it does
 
-Creates a Docker named volume named `${devcontainerId}-gcx-cli-state` and mounts it at `/dc/gcx`. The volume contains:
+Creates a Docker named volume named `${localWorkspaceFolderBasename}-${devcontainerId}-gcx-cli-state` and mounts it at `/dc/gcx`. The volume contains:
 
 | Volume subdirectory | Symlinked from | Contents |
 | --- | --- | --- |
@@ -30,7 +30,7 @@ This Feature has no options.
 ## Notes
 
 - The Feature persists only gcx's user configuration (`~/.config/gcx`). System and repository-level configuration files that gcx layers on top are not persisted.
-- The volume is scoped to the dev container ID, so each project keeps its own gcx configuration across rebuilds without sharing it with other containers on the Docker host. To wipe it, remove the volume with `docker volume rm <devcontainerId>-gcx-cli-state`.
+- The volume name starts with the workspace folder name so it is easy to spot in `docker volume ls`, and includes the dev container ID to keep it unique. This means each project keeps its own gcx configuration across rebuilds without sharing it with other containers on the Docker host, even when two projects have the same folder name. To wipe it, remove the volume with `docker volume rm <workspace-folder>-<devcontainerId>-gcx-cli-state`.
 - The volume may contain Grafana credentials and tokens. Treat it as sensitive.
 
 ## Testing

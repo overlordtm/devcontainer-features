@@ -1,6 +1,6 @@
 {
     "id": "shell-history",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "Shell History",
     "description": "Persists bash, zsh, and fish shell history across container rebuilds using a Docker volume.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/shell-history",
@@ -27,7 +27,7 @@
     },
     "mounts": [
         {
-            "source": "${devcontainerId}-shell-history",
+            "source": "${localWorkspaceFolderBasename}-${devcontainerId}-shell-history",
             "target": "/dc/shell-history",
             "type": "volume"
         }

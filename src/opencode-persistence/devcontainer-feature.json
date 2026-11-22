@@ -1,6 +1,6 @@
 {
     "id": "opencode-persistence",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "name": "OpenCode Persistence",
     "description": "Persists OpenCode config, authentication, and session data across container rebuilds using a Docker volume.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/opencode-persistence",
@@ -12,7 +12,7 @@
     ],
     "mounts": [
         {
-            "source": "${devcontainerId}-opencode-state",
+            "source": "${localWorkspaceFolderBasename}-${devcontainerId}-opencode-state",
             "target": "/dc/opencode",
             "type": "volume"
         }

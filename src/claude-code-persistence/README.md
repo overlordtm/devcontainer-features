@@ -15,7 +15,7 @@ This is a **companion Feature**: it does not install the `claude` CLI. Use it al
 
 ## What it does
 
-- Creates a Docker named volume named `${devcontainerId}-claude-code-config` and mounts it at `/dc/claude`.
+- Creates a Docker named volume named `${localWorkspaceFolderBasename}-${devcontainerId}-claude-code-config` and mounts it at `/dc/claude`.
 - Sets `CLAUDE_CONFIG_DIR=/dc/claude` through Feature `containerEnv` and `/etc/profile.d/00-claude-code-persistence.sh`, so Claude Code stores `.claude.json`, settings, history, and plugins on the volume.
 - Symlinks `~/.claude` to `/dc/claude` for tools that ignore `CLAUDE_CONFIG_DIR`.
 - On first container creation, migrates an existing `~/.claude` directory (moved to `~/.claude.pre-persistence` at build time) and `~/.claude.json` into the volume.
@@ -26,7 +26,7 @@ This Feature has no options.
 
 ## Notes
 
-- The volume is scoped to the dev container ID, so each project keeps its own account, settings, and session history across rebuilds without sharing them with other containers on the Docker host. To wipe it, remove the volume with `docker volume rm <devcontainerId>-claude-code-config`.
+- The volume name starts with the workspace folder name so it is easy to spot in `docker volume ls`, and includes the dev container ID to keep it unique. This means each project keeps its own account, settings, and session history across rebuilds without sharing them with other containers on the Docker host, even when two projects have the same folder name. To wipe it, remove the volume with `docker volume rm <workspace-folder>-<devcontainerId>-claude-code-config`.
 - The volume contains credentials and conversation history. Treat it as sensitive, and only use it with projects you trust.
 
 ## Testing

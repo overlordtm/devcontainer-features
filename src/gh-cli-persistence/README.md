@@ -15,7 +15,7 @@ This is a **companion Feature**: it does not install the `gh` CLI. Use it alongs
 
 ## What it does
 
-Creates a Docker named volume named `${devcontainerId}-gh-cli-state` and mounts it at `/dc/gh`. The volume contains:
+Creates a Docker named volume named `${localWorkspaceFolderBasename}-${devcontainerId}-gh-cli-state` and mounts it at `/dc/gh`. The volume contains:
 
 | Volume subdirectory | Symlinked from | Contents |
 | --- | --- | --- |
@@ -34,7 +34,7 @@ This Feature has no options.
 ## Notes
 
 - The Feature assumes the default paths. If you override `GH_CONFIG_DIR`, `XDG_CONFIG_HOME`, `XDG_DATA_HOME`, or `XDG_STATE_HOME`, `gh` will not use these symlinks.
-- The volume is scoped to the dev container ID, so each project keeps its own authentication and extension state across rebuilds without sharing it with other containers on the Docker host. To wipe it, remove the volume with `docker volume rm <devcontainerId>-gh-cli-state`.
+- The volume name starts with the workspace folder name so it is easy to spot in `docker volume ls`, and includes the dev container ID to keep it unique. This means each project keeps its own authentication and extension state across rebuilds without sharing it with other containers on the Docker host, even when two projects have the same folder name. To wipe it, remove the volume with `docker volume rm <workspace-folder>-<devcontainerId>-gh-cli-state`.
 - The volume contains `hosts.yml`, which holds access tokens. Treat it as sensitive (`gh` writes it with mode `0600`).
 
 ## Testing
