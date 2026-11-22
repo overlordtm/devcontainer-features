@@ -1,11 +1,14 @@
 name: "Release Dev Container Features"
 
+# Publish only after the "Test Dev Container Features" workflow has completed
+# successfully for a push to main, so untested features never reach GHCR.
 on:
-  push:
+  workflow_run:
+    workflows: ["Test Dev Container Features"]
+    types:
+      - completed
     branches:
       - main
-    paths:
-      - "src/**"
   workflow_dispatch:
 
 concurrency:
@@ -14,7 +17,13 @@ concurrency:
 
 jobs:
   publish:
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: >-
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_run' &&
+       github.event.workflow_run.event == 'push' &&
+       github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main' &&
+       github.event.workflow_run.head_repository.full_name == github.repository)
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -23,6 +32,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Publish the exact commit whose tests passed instead of the
+          # (possibly newer) tip of main.
+          ref: ${{ github.event.workflow_run.head_sha || github.ref }}
 
       # Packages each folder in ./src as a devcontainer-feature-<id>.tgz and
       # pushes it to ghcr.io/<owner>/<repo>/<id> using the OCI artifact
