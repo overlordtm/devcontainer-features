@@ -63,11 +63,11 @@ jobs:
           - feature: aws-cli
             baseImage: mcr.microsoft.com/devcontainers/base:alpine
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "26"
 
       - name: Install Dev Container CLI
         run: npm install -g @devcontainers/cli
@@ -115,11 +115,11 @@ jobs:
           - fj-cli-persistence
           - manage-packages
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "26"
 
       - name: Install Dev Container CLI
         run: npm install -g @devcontainers/cli
