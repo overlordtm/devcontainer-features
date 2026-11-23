@@ -1,0 +1,27 @@
+{
+    "id": "glab-cli-persistence",
+    "version": "0.0.1",
+    "name": "GitLab CLI Persistence",
+    "description": "Persists glab (GitLab CLI) authentication, configuration, aliases, and managed binaries across container rebuilds using a Docker volume.",
+    "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/glab-cli-persistence",
+    "keywords": [
+        "gitlab",
+        "glab",
+        "persistence",
+        "volume"
+    ],
+    "mounts": [
+        {
+            "source": "${localWorkspaceFolderBasename}-${devcontainerId}-glab-cli-state",
+            "target": "/dc/glab",
+            "type": "volume"
+        }
+    ],
+    "onCreateCommand": {
+        "glab-cli-persistence": "/usr/local/share/glab-cli-persistence/oncreate.sh"
+    },
+    "installsAfter": [
+        "ghcr.io/overlordtm/devcontainer-features/glab-cli",
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

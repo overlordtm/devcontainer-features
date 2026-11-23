@@ -1,6 +1,6 @@
 {
     "id": "glab-cli",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "name": "GitLab CLI (glab)",
     "description": "Installs the official GitLab CLI (glab) from GitLab releases.",
     "documentationURL": "https://github.com/overlordtm/devcontainer-features/tree/main/src/glab-cli",

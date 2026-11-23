@@ -15,6 +15,7 @@ A collection of [Dev Container Features](https://containers.dev/implementors/fea
 | [`shell-history`](src/shell-history) | Persists bash, zsh, and fish shell history across container rebuilds. |
 | [`omz-plugins`](src/omz-plugins) | Adds, removes, or replaces Oh My Zsh plugins in the remote user's `.zshrc`. |
 | [`glab-cli`](src/glab-cli) | Installs the official GitLab CLI (`glab`). |
+| [`glab-cli-persistence`](src/glab-cli-persistence) | Persists `glab` authentication, configuration, aliases, and managed binaries across container rebuilds. |
 | [`gh-cli`](src/gh-cli) | Installs the GitHub CLI (`gh`). |
 | [`gh-cli-persistence`](src/gh-cli-persistence) | Persists `gh` authentication, configuration, extensions, and state across container rebuilds. |
 | [`opentofu-cli`](src/opentofu-cli) | Installs the OpenTofu CLI (`tofu`). |
@@ -91,6 +92,9 @@ Features are published under the `overlordtm/devcontainer-features` namespace.
 
         "ghcr.io/overlordtm/devcontainer-features/fj-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/fj-cli-persistence:0": {},
+
+        "ghcr.io/overlordtm/devcontainer-features/glab-cli:0": {},
+        "ghcr.io/overlordtm/devcontainer-features/glab-cli-persistence:0": {},
 
         "ghcr.io/overlordtm/devcontainer-features/gh-cli:0": {},
         "ghcr.io/overlordtm/devcontainer-features/gh-cli-persistence:0": {},

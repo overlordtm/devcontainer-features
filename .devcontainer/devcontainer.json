@@ -14,7 +14,10 @@
         "ghcr.io/overlordtm/devcontainer-features/omz-plugins:0": {
             "add": "zsh-autosuggestions zsh-syntax-highlighting gh"
         },
-        "ghcr.io/overlordtm/devcontainer-features/shell-history:0": {}
+        "ghcr.io/overlordtm/devcontainer-features/shell-history:0": {},
+        "ghcr.io/devcontainers-extra/features/node-asdf:0": {
+            "version": "latest"
+        }
     },
     "customizations": {
         "vscode": {

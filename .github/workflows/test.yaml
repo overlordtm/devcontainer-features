@@ -32,6 +32,7 @@ jobs:
           - shell-history
           - omz-plugins
           - glab-cli
+          - glab-cli-persistence
           - gh-cli
           - gh-cli-persistence
           - opentofu-cli
@@ -94,6 +95,7 @@ jobs:
           - shell-history
           - omz-plugins
           - glab-cli
+          - glab-cli-persistence
           - gh-cli
           - gh-cli-persistence
           - opentofu-cli

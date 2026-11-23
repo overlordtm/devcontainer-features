@@ -24,7 +24,7 @@ Installs the official [GitLab CLI](https://gitlab.com/gitlab-org/cli) from GitLa
 ## Notes
 
 - Supports `linux/amd64`, `linux/arm64`, `linux/armv6`, `linux/386`, `linux/ppc64le`, and `linux/s390x`.
-- `glab` stores its configuration in `~/.config/glab-cli`. This Feature does not persist that directory; add a mount if you need it to survive rebuilds.
+- `glab` stores its configuration in `~/.config/glab-cli`; this Feature does not persist that directory. Pair it with [`glab-cli-persistence`](../glab-cli-persistence) to keep authentication, aliases, and managed binaries across container rebuilds.
 - `version` defaults to the pinned release `1.131.0` so builds are reproducible. Set `"version": "latest"` to resolve the newest release at build time; that requires network access and a known checksum.
 
 ## Checksum verification
